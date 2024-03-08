@@ -48,6 +48,7 @@ _STORAGE_UNIT_VALUE: Dict[str, int] = {
     'GB': 1024 * 1024 * 1024,
     'MB': 1024 * 1024,
     'TiB': 1000 * 1000 * 1000 * 1000,
+    'GiB': 1000 * 1000 * 1000,
     'MiB': 1000 * 1000,
     'KiB': 1000,
 }
@@ -351,6 +352,18 @@ def get_torrent_size(filesize: str, filesize_multiplier: str) -> Optional[int]:
         return int(float(filesize) * multiplier)
     except ValueError:
         return None
+
+
+def humanize_bytes(size, precision=2):
+    """Determine the *human readable* value of bytes on 1024 base (1KB=1024B)."""
+    s = ['B ', 'KB', 'MB', 'GB', 'TB']
+
+    x = len(s)
+    p = 0
+    while size > 1024 and p < x:
+        p += 1
+        size = size / 1024.0
+    return "%.*f %s" % (precision, size, s[p])
 
 
 def convert_str_to_int(number_str: str) -> int:
