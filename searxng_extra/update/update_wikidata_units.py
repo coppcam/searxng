@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
-# pylint: disable=missing-module-docstring
-
 """Fetch units from :origin:`searx/engines/wikidata.py` engine.
 
 Output file: :origin:`searx/data/wikidata_units.json` (:origin:`CI Update data
@@ -18,6 +15,9 @@ from os.path import join
 
 from searx import searx_dir
 from searx.engines import wikidata, set_loggers
+from searx.data import data_dir
+
+DATA_FILE = data_dir / 'wikidata_units.json'
 
 set_loggers(wikidata, 'wikidata')
 
@@ -58,9 +58,9 @@ def get_data():
 
 
 def get_wikidata_units_filename():
-    return join(join(searx_dir, "data"), "wikidata_units.json")
+    return join(join(searx_dir, "data"), "")
 
 
 if __name__ == '__main__':
-    with open(get_wikidata_units_filename(), 'w', encoding="utf8") as f:
-        json.dump(get_data(), f, indent=4, ensure_ascii=False)
+    with DATA_FILE.open('w', encoding="utf8") as f:
+        json.dump(get_data(), f, indent=4, sort_keys=True, ensure_ascii=False)

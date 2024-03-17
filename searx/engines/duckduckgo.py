@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# lint: pylint
 """
 DuckDuckGo Lite
 ~~~~~~~~~~~~~~~
@@ -379,8 +378,8 @@ def fetch_traits(engine_traits: EngineTraits):
 
     engine_traits.all_locale = 'wt-wt'
 
-    # updated from u588 to u661 / should be updated automatically?
-    resp = get('https://duckduckgo.com/util/u661.js')
+    # updated from u661.js to u.7669f071a13a7daa57cb / should be updated automatically?
+    resp = get('https://duckduckgo.com/dist/util/u.7669f071a13a7daa57cb.js')
 
     if not resp.ok:  # type: ignore
         print("ERROR: response from DuckDuckGo is not OK.")
