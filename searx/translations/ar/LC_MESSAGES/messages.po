@@ -16,23 +16,23 @@
 # nebras <johndevand@tutanota.com>, 2024.
 # return42 <return42@users.noreply.translate.codeberg.org>, 2024.
 # Yahya-Lando <Yahya-Lando@users.noreply.translate.codeberg.org>, 2024.
+# nebras <nebras@users.noreply.translate.codeberg.org>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: searx\n"
+"Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-09 15:27+0000\n"
-"PO-Revision-Date: 2024-06-01 07:13+0000\n"
-"Last-Translator: return42 <return42@users.noreply.translate.codeberg.org>\n"
-"Language-Team: Arabic <https://translate.codeberg.org/projects/searxng/"
-"searxng/ar/>\n"
+"POT-Creation-Date: 2024-06-17 12:15+0000\n"
+"PO-Revision-Date: 2024-06-11 02:08+0000\n"
+"Last-Translator: nebras <nebras@users.noreply.translate.codeberg.org>\n"
 "Language: ar\n"
+"Language-Team: Arabic "
+"<https://translate.codeberg.org/projects/searxng/searxng/ar/>\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 5.5.5\n"
-"Generated-By: Babel 2.14.0\n"
+"Generated-By: Babel 2.15.0\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
 #: searx/searxng.msg
@@ -187,7 +187,7 @@ msgstr "متوسط الحرارة"
 #. WEATHER_TERMS['CLOUD COVER']
 #: searx/searxng.msg
 msgid "Cloud cover"
-msgstr ""
+msgstr "حالة الطقس"
 
 #. WEATHER_TERMS['CONDITION']
 #: searx/searxng.msg
@@ -302,12 +302,12 @@ msgstr "المستخدم"
 #. SOCIAL_MEDIA_TERMS['COMMUNITY']
 #: searx/searxng.msg
 msgid "community"
-msgstr ""
+msgstr "المجتمع"
 
 #. SOCIAL_MEDIA_TERMS['POINTS']
 #: searx/searxng.msg
 msgid "points"
-msgstr ""
+msgstr "النقاط"
 
 #. SOCIAL_MEDIA_TERMS['TITLE']
 #: searx/searxng.msg
@@ -318,6 +318,21 @@ msgstr "العنوان"
 #: searx/searxng.msg
 msgid "author"
 msgstr "الكاتب"
+
+#. SOCIAL_MEDIA_TERMS['THREAD OPEN']
+#: searx/engines/discourse.py:121 searx/searxng.msg
+msgid "open"
+msgstr "مفتوح"
+
+#. SOCIAL_MEDIA_TERMS['THREAD CLOSED']
+#: searx/engines/discourse.py:121 searx/searxng.msg
+msgid "closed"
+msgstr "مغلق"
+
+#. SOCIAL_MEDIA_TERMS['THREAD ANSWERED']
+#: searx/engines/discourse.py:132 searx/searxng.msg
+msgid "answered"
+msgstr "أُجيبت"
 
 #: searx/webapp.py:330
 msgid "No item found"
@@ -496,7 +511,7 @@ msgstr "جودة الملف"
 
 #: searx/plugins/calculator.py:12
 msgid "Calculate mathematical expressions via the search bar"
-msgstr ""
+msgstr "حساب التعبيرات الرياضية عبر شريط البحث"
 
 #: searx/plugins/hash_plugin.py:10
 msgid "Converts strings to different hash digests."
@@ -506,13 +521,19 @@ msgstr "يحول السلسلة إلى ملخص التجزئة."
 msgid "hash digest"
 msgstr "ملخص التجزئة"
 
-#: searx/plugins/hostname_replace.py:12
+#: searx/plugins/hostname_replace.py:7
 msgid "Hostname replace"
 msgstr "استبدال اسم المضيف"
 
-#: searx/plugins/hostname_replace.py:13
-msgid "Rewrite result hostnames or remove results based on the hostname"
-msgstr "أعد كتابة أسماء مضيفي النتائج أو أزل النتائج بناءً على اسم المضيف"
+#: searx/plugins/hostnames.py:68
+msgid "Hostnames plugin"
+msgstr "مُلحق لأسماء المضيفين (Hostnames)"
+
+#: searx/plugins/hostnames.py:69
+msgid "Rewrite hostnames, remove results or prioritize them based on the hostname"
+msgstr ""
+"أعِد كتابة أسماء المضيفين (hostnames) أو أزِل النتائج أو حدّد أولوياتها "
+"بناءً على اسم المضيف (hostname)"
 
 #: searx/plugins/oa_doi_rewrite.py:12
 msgid "Open Access DOI rewrite"
@@ -537,6 +558,14 @@ msgid ""
 msgstr ""
 "يعرض IP إذا كان الاستعلام \"ip\" و وكيل المستخدم الخاص بك إذا كان "
 "الاستعلام يحتوي على\"user agent\"."
+
+#: searx/plugins/self_info.py:28
+msgid "Your IP is: "
+msgstr ""
+
+#: searx/plugins/self_info.py:31
+msgid "Your user-agent is: "
+msgstr ""
 
 #: searx/plugins/tor_check.py:24
 msgid "Tor check plugin"
@@ -580,7 +609,7 @@ msgstr ""
 
 #: searx/plugins/unit_converter.py:29
 msgid "Convert between units"
-msgstr ""
+msgstr "التحويل بين الوحدات"
 
 #: searx/templates/simple/404.html:4
 msgid "Page not found"
@@ -641,22 +670,22 @@ msgstr "اتصال بالمشرف المخدم النموذجي"
 msgid "Click on the magnifier to perform search"
 msgstr "انقر على رمز المكبر للقيام بالبحث"
 
-#: searx/templates/simple/macros.html:36
+#: searx/templates/simple/macros.html:35
 msgid "Length"
 msgstr "الطول"
 
-#: searx/templates/simple/macros.html:37
+#: searx/templates/simple/macros.html:36
 #: searx/templates/simple/result_templates/files.html:34
 #: searx/templates/simple/result_templates/images.html:19
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
 msgstr "الكاتب"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:44
 msgid "cached"
 msgstr "النسخة المخبأة"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:44
 msgid "proxied"
 msgstr "المخدم البروكسي"
 
@@ -1150,11 +1179,11 @@ msgstr ""
 
 #: searx/templates/simple/preferences/engines.html:15
 msgid "Enable all"
-msgstr ""
+msgstr "فعّل الكل"
 
 #: searx/templates/simple/preferences/engines.html:16
 msgid "Disable all"
-msgstr ""
+msgstr "عطّل الكل"
 
 #: searx/templates/simple/preferences/engines.html:25
 msgid "!bang"
@@ -1341,36 +1370,11 @@ msgstr "هذا الموقع لم يقدم أي وصف."
 msgid "Filesize"
 msgstr "حجم الملف"
 
-#: searx/templates/simple/result_templates/files.html:39
-#: searx/templates/simple/result_templates/torrent.html:12
-msgid "Bytes"
-msgstr "بايت"
-
 #: searx/templates/simple/result_templates/files.html:40
-#: searx/templates/simple/result_templates/torrent.html:13
-msgid "kiB"
-msgstr "ك.بايت"
-
-#: searx/templates/simple/result_templates/files.html:41
-#: searx/templates/simple/result_templates/torrent.html:14
-msgid "MiB"
-msgstr "ميغابايت"
-
-#: searx/templates/simple/result_templates/files.html:42
-#: searx/templates/simple/result_templates/torrent.html:15
-msgid "GiB"
-msgstr "جيجابيت"
-
-#: searx/templates/simple/result_templates/files.html:43
-#: searx/templates/simple/result_templates/torrent.html:16
-msgid "TiB"
-msgstr "تيرابيت"
-
-#: searx/templates/simple/result_templates/files.html:47
 msgid "Date"
 msgstr "تاريخ"
 
-#: searx/templates/simple/result_templates/files.html:49
+#: searx/templates/simple/result_templates/files.html:42
 #: searx/templates/simple/result_templates/paper.html:24
 msgid "Type"
 msgstr "نوع"
@@ -1409,7 +1413,7 @@ msgstr "الإصدار"
 
 #: searx/templates/simple/result_templates/packages.html:18
 msgid "Maintainer"
-msgstr ""
+msgstr "المسئول عن صيانة"
 
 #: searx/templates/simple/result_templates/packages.html:24
 msgid "Updated at"
@@ -1488,7 +1492,7 @@ msgstr "الزارع"
 msgid "Leecher"
 msgstr "الحاصد"
 
-#: searx/templates/simple/result_templates/torrent.html:20
+#: searx/templates/simple/result_templates/torrent.html:13
 msgid "Number of Files"
 msgstr "عدد الملفات"
 
@@ -1913,3 +1917,22 @@ msgstr "إخفاء الفيديو"
 #~ "لم نتوصل إلى العثور على أية نتيجة."
 #~ " الرجاء إعادة صياغة طلب البحث أو "
 #~ "إبحث مع تحديد أكثر من فئة."
+
+#~ msgid "Rewrite result hostnames or remove results based on the hostname"
+#~ msgstr "أعد كتابة أسماء مضيفي النتائج أو أزل النتائج بناءً على اسم المضيف"
+
+#~ msgid "Bytes"
+#~ msgstr "بايت"
+
+#~ msgid "kiB"
+#~ msgstr "ك.بايت"
+
+#~ msgid "MiB"
+#~ msgstr "ميغابايت"
+
+#~ msgid "GiB"
+#~ msgstr "جيجابيت"
+
+#~ msgid "TiB"
+#~ msgstr "تيرابيت"
+

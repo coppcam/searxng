@@ -20,13 +20,14 @@
 # mittwerk <w0o0y8jt@duck.com>, 2023.
 # 0ko <0ko@users.noreply.translate.codeberg.org>, 2024.
 # return42 <return42@users.noreply.translate.codeberg.org>, 2024.
+# Xvnov <Xvnov@users.noreply.translate.codeberg.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-09 15:27+0000\n"
-"PO-Revision-Date: 2024-05-17 06:18+0000\n"
-"Last-Translator: 0ko <0ko@users.noreply.translate.codeberg.org>\n"
+"POT-Creation-Date: 2024-06-17 12:15+0000\n"
+"PO-Revision-Date: 2024-06-18 21:18+0000\n"
+"Last-Translator: Xvnov <Xvnov@users.noreply.translate.codeberg.org>\n"
 "Language-Team: Russian <https://translate.codeberg.org/projects/searxng/"
 "searxng/ru/>\n"
 "Language: ru\n"
@@ -37,7 +38,7 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || ("
 "n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Generator: Weblate 5.5.5\n"
-"Generated-By: Babel 2.14.0\n"
+"Generated-By: Babel 2.15.0\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
 #: searx/searxng.msg
@@ -324,6 +325,21 @@ msgstr "название"
 msgid "author"
 msgstr "автор"
 
+#. SOCIAL_MEDIA_TERMS['THREAD OPEN']
+#: searx/engines/discourse.py:121 searx/searxng.msg
+msgid "open"
+msgstr "Открыть"
+
+#. SOCIAL_MEDIA_TERMS['THREAD CLOSED']
+#: searx/engines/discourse.py:121 searx/searxng.msg
+msgid "closed"
+msgstr "Закрыто"
+
+#. SOCIAL_MEDIA_TERMS['THREAD ANSWERED']
+#: searx/engines/discourse.py:132 searx/searxng.msg
+msgid "answered"
+msgstr "ответил"
+
 #: searx/webapp.py:330
 msgid "No item found"
 msgstr "Ничего не найдено"
@@ -359,7 +375,7 @@ msgstr "ошибка разбора"
 
 #: searx/webutils.py:38
 msgid "HTTP protocol error"
-msgstr "ошибка HTTP"
+msgstr "Ошибка протокола HTTP"
 
 #: searx/webutils.py:39
 msgid "network error"
@@ -512,13 +528,19 @@ msgstr "Рассчитывает контрольные суммы от стро
 msgid "hash digest"
 msgstr "контрольная сумма"
 
-#: searx/plugins/hostname_replace.py:12
+#: searx/plugins/hostname_replace.py:7
 msgid "Hostname replace"
 msgstr "Замена имени сайта"
 
-#: searx/plugins/hostname_replace.py:13
-msgid "Rewrite result hostnames or remove results based on the hostname"
-msgstr "Заменить имя хоста или удалить результаты на основе имени хоста"
+#: searx/plugins/hostnames.py:68
+msgid "Hostnames plugin"
+msgstr "Плагин имени хостов"
+
+#: searx/plugins/hostnames.py:69
+msgid "Rewrite hostnames, remove results or prioritize them based on the hostname"
+msgstr ""
+"Перепишите имена хостов, удалите результаты или расставьте приоритеты в "
+"зависимости от имени хоста"
 
 #: searx/plugins/oa_doi_rewrite.py:12
 msgid "Open Access DOI rewrite"
@@ -543,6 +565,14 @@ msgid ""
 msgstr ""
 "Показывать ваш IP-адрес по запросу \"ip\" и информацию о браузере по "
 "запросу \"user agent\"."
+
+#: searx/plugins/self_info.py:28
+msgid "Your IP is: "
+msgstr "Ваш IP-адрес: "
+
+#: searx/plugins/self_info.py:31
+msgid "Your user-agent is: "
+msgstr "Информация о вашем браузере: "
 
 #: searx/plugins/tor_check.py:24
 msgid "Tor check plugin"
@@ -573,7 +603,8 @@ msgstr "Вы не используете Tor. Ваш публичный IP-ад�
 
 #: searx/plugins/tor_check.py:85
 msgid "You are not using Tor and you have this external IP address: {ip_address}"
-msgstr "Вы не используете Tor, и у вас следующий публичный IP адрес: {ip_address}"
+msgstr ""
+"Вы не используете Tor, и у вас следующий публичный IP-адрес: {ip_address}"
 
 #: searx/plugins/tracker_url_remover.py:16
 msgid "Tracker URL remover"
@@ -646,22 +677,22 @@ msgstr "Сопровождающий текущего зеркала"
 msgid "Click on the magnifier to perform search"
 msgstr "Нажмите на лупу, чтобы выполнить поиск"
 
-#: searx/templates/simple/macros.html:36
+#: searx/templates/simple/macros.html:35
 msgid "Length"
 msgstr "Длительность"
 
-#: searx/templates/simple/macros.html:37
+#: searx/templates/simple/macros.html:36
 #: searx/templates/simple/result_templates/files.html:34
 #: searx/templates/simple/result_templates/images.html:19
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
 msgstr "Автор"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:44
 msgid "cached"
 msgstr "веб-архив"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:44
 msgid "proxied"
 msgstr "через прокси"
 
@@ -1354,36 +1385,11 @@ msgstr "Этот сайт не предоставил описания."
 msgid "Filesize"
 msgstr "Размер файла"
 
-#: searx/templates/simple/result_templates/files.html:39
-#: searx/templates/simple/result_templates/torrent.html:12
-msgid "Bytes"
-msgstr "Байт"
-
 #: searx/templates/simple/result_templates/files.html:40
-#: searx/templates/simple/result_templates/torrent.html:13
-msgid "kiB"
-msgstr "КиБ"
-
-#: searx/templates/simple/result_templates/files.html:41
-#: searx/templates/simple/result_templates/torrent.html:14
-msgid "MiB"
-msgstr "МиБ"
-
-#: searx/templates/simple/result_templates/files.html:42
-#: searx/templates/simple/result_templates/torrent.html:15
-msgid "GiB"
-msgstr "ГиБ"
-
-#: searx/templates/simple/result_templates/files.html:43
-#: searx/templates/simple/result_templates/torrent.html:16
-msgid "TiB"
-msgstr "ТиБ"
-
-#: searx/templates/simple/result_templates/files.html:47
 msgid "Date"
 msgstr "Дата"
 
-#: searx/templates/simple/result_templates/files.html:49
+#: searx/templates/simple/result_templates/files.html:42
 #: searx/templates/simple/result_templates/paper.html:24
 msgid "Type"
 msgstr "Тип"
@@ -1501,7 +1507,7 @@ msgstr "Сиды"
 msgid "Leecher"
 msgstr "Личи"
 
-#: searx/templates/simple/result_templates/torrent.html:20
+#: searx/templates/simple/result_templates/torrent.html:13
 msgid "Number of Files"
 msgstr "Количество файлов"
 
@@ -1936,3 +1942,21 @@ msgstr "скрыть видео"
 #~ "мы не нашли никаких результатов. "
 #~ "Попробуйте изменить запрос или поищите в"
 #~ " других категориях."
+
+#~ msgid "Rewrite result hostnames or remove results based on the hostname"
+#~ msgstr "Заменить имя хоста или удалить результаты на основе имени хоста"
+
+#~ msgid "Bytes"
+#~ msgstr "Байт"
+
+#~ msgid "kiB"
+#~ msgstr "КиБ"
+
+#~ msgid "MiB"
+#~ msgstr "МиБ"
+
+#~ msgid "GiB"
+#~ msgstr "ГиБ"
+
+#~ msgid "TiB"
+#~ msgstr "ТиБ"
