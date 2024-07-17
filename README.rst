@@ -1,3 +1,5 @@
+Vanilla, only difference is a logo different on the homepage.
+
 .. SPDX-License-Identifier: AGPL-3.0-or-later
 
 ----
