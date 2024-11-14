@@ -10,19 +10,19 @@
 # sushen23 <sushen23@users.noreply.translate.codeberg.org>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: searx\n"
+"Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-03 15:52+0000\n"
+"POT-Creation-Date: 2024-10-05 06:24+0000\n"
 "PO-Revision-Date: 2024-09-12 14:18+0000\n"
-"Last-Translator: sushen23 <sushen23@users.noreply.translate.codeberg.org>\n"
-"Language-Team: Telugu <https://translate.codeberg.org/projects/searxng/"
-"searxng/te/>\n"
+"Last-Translator: sushen23 <sushen23@users.noreply.translate.codeberg.org>"
+"\n"
 "Language: te\n"
+"Language-Team: Telugu "
+"<https://translate.codeberg.org/projects/searxng/searxng/te/>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7\n"
 "Generated-By: Babel 2.16.0\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
@@ -160,6 +160,11 @@ msgstr "వెలుగు"
 msgid "dark"
 msgstr "చీకటి"
 
+#. STYLE_NAMES['BLACK']
+#: searx/searxng.msg
+msgid "black"
+msgstr ""
+
 #. BRAND_CUSTOM_LINKS['UPTIME']
 #: searx/searxng.msg
 msgid "Uptime"
@@ -171,21 +176,23 @@ msgid "About"
 msgstr "గురించి"
 
 #. WEATHER_TERMS['AVERAGE TEMP.']
-#: searx/searxng.msg
+#: searx/engines/wttr.py:32 searx/searxng.msg
 msgid "Average temp."
 msgstr "సగటు ఉష్ణోగ్రత"
 
 #. WEATHER_TERMS['CLOUD COVER']
-#: searx/searxng.msg
+#: searx/engines/open_meteo.py:91 searx/searxng.msg
 msgid "Cloud cover"
 msgstr "మేఘం కమ్మటం"
 
 #. WEATHER_TERMS['CONDITION']
+#: searx/engines/duckduckgo_weather.py:45 searx/engines/wttr.py:51
 #: searx/searxng.msg
 msgid "Condition"
 msgstr "పరిస్థితి"
 
 #. WEATHER_TERMS['CURRENT CONDITION']
+#: searx/engines/duckduckgo_weather.py:118 searx/engines/wttr.py:104
 #: searx/searxng.msg
 msgid "Current condition"
 msgstr "ప్రస్తుత పరిస్థితి"
@@ -196,21 +203,25 @@ msgid "Evening"
 msgstr "సాయంత్రం"
 
 #. WEATHER_TERMS['FEELS LIKE']
-#: searx/searxng.msg
+#: searx/engines/duckduckgo_weather.py:53 searx/engines/open_meteo.py:81
+#: searx/engines/wttr.py:59 searx/searxng.msg
 msgid "Feels like"
 msgstr "అనిపిస్తుంది"
 
 #. WEATHER_TERMS['HUMIDITY']
-#: searx/searxng.msg
+#: searx/engines/duckduckgo_weather.py:64 searx/engines/open_meteo.py:93
+#: searx/engines/wttr.py:68 searx/searxng.msg
 msgid "Humidity"
 msgstr "తేమ"
 
 #. WEATHER_TERMS['MAX TEMP.']
+#: searx/engines/duckduckgo_weather.py:77 searx/engines/wttr.py:34
 #: searx/searxng.msg
 msgid "Max temp."
 msgstr "గరిష్ట ఉష్ణోగ్రత."
 
 #. WEATHER_TERMS['MIN TEMP.']
+#: searx/engines/duckduckgo_weather.py:73 searx/engines/wttr.py:33
 #: searx/searxng.msg
 msgid "Min temp."
 msgstr "కనిష్ట ఉష్ణోగ్రత."
@@ -231,72 +242,79 @@ msgid "Noon"
 msgstr "మధ్యాహ్నం"
 
 #. WEATHER_TERMS['PRESSURE']
-#: searx/searxng.msg
+#: searx/engines/open_meteo.py:95 searx/searxng.msg
 msgid "Pressure"
 msgstr "వాతావరణ పీడనం"
 
 #. WEATHER_TERMS['SUNRISE']
+#: searx/engines/duckduckgo_weather.py:81 searx/engines/wttr.py:36
 #: searx/searxng.msg
 msgid "Sunrise"
 msgstr "సూర్యోదయం"
 
 #. WEATHER_TERMS['SUNSET']
+#: searx/engines/duckduckgo_weather.py:82 searx/engines/wttr.py:37
 #: searx/searxng.msg
 msgid "Sunset"
 msgstr "సూర్యాస్తమయం"
 
 #. WEATHER_TERMS['TEMPERATURE']
-#: searx/searxng.msg
+#: searx/engines/duckduckgo_weather.py:48 searx/engines/open_meteo.py:76
+#: searx/engines/wttr.py:55 searx/searxng.msg
 msgid "Temperature"
 msgstr "ఉష్ణోగ్రత"
 
 #. WEATHER_TERMS['UV INDEX']
+#: searx/engines/duckduckgo_weather.py:80 searx/engines/wttr.py:35
 #: searx/searxng.msg
 msgid "UV index"
 msgstr "UV సూచిక"
 
 #. WEATHER_TERMS['VISIBILITY']
+#: searx/engines/duckduckgo_weather.py:62 searx/engines/wttr.py:66
 #: searx/searxng.msg
 msgid "Visibility"
 msgstr "విసిబిలిటీ"
 
 #. WEATHER_TERMS['WIND']
-#: searx/searxng.msg
+#: searx/engines/duckduckgo_weather.py:58 searx/engines/open_meteo.py:86
+#: searx/engines/wttr.py:62 searx/searxng.msg
 msgid "Wind"
 msgstr "గాలి"
 
 #. SOCIAL_MEDIA_TERMS['SUBSCRIBERS']
-#: searx/searxng.msg
+#: searx/engines/lemmy.py:85 searx/searxng.msg
 msgid "subscribers"
 msgstr "సుబ్స్చ్రిబెర్ లు"
 
 #. SOCIAL_MEDIA_TERMS['POSTS']
-#: searx/searxng.msg
+#: searx/engines/lemmy.py:86 searx/searxng.msg
 msgid "posts"
 msgstr "పోస్ట్ లు"
 
 #. SOCIAL_MEDIA_TERMS['ACTIVE USERS']
-#: searx/searxng.msg
+#: searx/engines/lemmy.py:87 searx/searxng.msg
 msgid "active users"
 msgstr "ఆక్టివ్ యూసర్ లు"
 
 #. SOCIAL_MEDIA_TERMS['COMMENTS']
-#: searx/searxng.msg
+#: searx/engines/discourse.py:157 searx/engines/hackernews.py:78
+#: searx/engines/lemmy.py:130 searx/searxng.msg
 msgid "comments"
 msgstr "కామెంట్ లు"
 
 #. SOCIAL_MEDIA_TERMS['USER']
-#: searx/searxng.msg
+#: searx/engines/lemmy.py:129 searx/engines/lemmy.py:164 searx/searxng.msg
 msgid "user"
 msgstr "యూసర్"
 
 #. SOCIAL_MEDIA_TERMS['COMMUNITY']
-#: searx/searxng.msg
+#: searx/engines/lemmy.py:131 searx/engines/lemmy.py:165 searx/searxng.msg
 msgid "community"
 msgstr "కమ్యూనిటీ"
 
 #. SOCIAL_MEDIA_TERMS['POINTS']
-#: searx/searxng.msg
+#: searx/engines/hackernews.py:78 searx/searxng.msg
 msgid "points"
 msgstr "పాయింట్ లు"
 
@@ -306,7 +324,7 @@ msgid "title"
 msgstr "టైటిల్"
 
 #. SOCIAL_MEDIA_TERMS['AUTHOR']
-#: searx/searxng.msg
+#: searx/engines/hackernews.py:81 searx/searxng.msg
 msgid "author"
 msgstr "రచయిత"
 
@@ -325,28 +343,28 @@ msgstr "క్లోస్డ్"
 msgid "answered"
 msgstr "సమాధానమిచ్చారు"
 
-#: searx/webapp.py:330
+#: searx/webapp.py:332
 msgid "No item found"
 msgstr "ఏమీ దొరకలేదు"
 
-#: searx/engines/qwant.py:281
-#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:332
+#: searx/engines/qwant.py:288
+#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:334
 msgid "Source"
 msgstr "మూలం"
 
-#: searx/webapp.py:334
+#: searx/webapp.py:336
 msgid "Error loading the next page"
 msgstr "తదుపరి పేజీని లోడ్ చేయడంలో లోపం"
 
-#: searx/webapp.py:491 searx/webapp.py:894
+#: searx/webapp.py:495 searx/webapp.py:898
 msgid "Invalid settings, please edit your preferences"
 msgstr "చెల్లని సెట్టింగ్‌లు, దయచేసి మీ ప్రాధాన్యతలను సవరించండి"
 
-#: searx/webapp.py:507
+#: searx/webapp.py:511
 msgid "Invalid settings"
 msgstr "చెల్లని అమరికలు"
 
-#: searx/webapp.py:584 searx/webapp.py:666
+#: searx/webapp.py:588 searx/webapp.py:670
 msgid "search error"
 msgstr "శోధనలో లోపము"
 
@@ -430,6 +448,10 @@ msgstr "సాంఖ్యకశాస్త్ర ప్రమేయాలు"
 msgid "Compute {functions} of the arguments"
 msgstr "ఆర్గ్యుమెంట్‌ల {functions} గణించండి"
 
+#: searx/engines/mozhi.py:57
+msgid "Synonyms"
+msgstr ""
+
 #: searx/engines/openstreetmap.py:159
 msgid "Get directions"
 msgstr "దిశలను పొందండి"
@@ -442,7 +464,7 @@ msgstr "{title} (వాడుకలో లేదు)"
 msgid "This entry has been superseded by"
 msgstr "దీని ద్వారా ఈ ఎంట్రీ భర్తీ చేయబడింది"
 
-#: searx/engines/qwant.py:283
+#: searx/engines/qwant.py:290
 msgid "Channel"
 msgstr "ఛానెల్"
 
@@ -468,8 +490,8 @@ msgid ""
 "{numCitations} citations from the year {firstCitationVelocityYear} to "
 "{lastCitationVelocityYear}"
 msgstr ""
-"{firstCitationVelocityYear} సంవత్సరం నుండి {lastCitationVelocityYear} వరకు "
-"{numCitations}"
+"{firstCitationVelocityYear} సంవత్సరం నుండి {lastCitationVelocityYear} "
+"వరకు {numCitations}"
 
 #: searx/engines/tineye.py:45
 msgid ""
@@ -477,16 +499,17 @@ msgid ""
 "format. TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or"
 " WebP."
 msgstr ""
-"ఆ చిత్ర urlని చదవడం సాధ్యపడలేదు. ఇది సపోర్ట్ లేని ఫైల్ ఫార్మాట్ వల్ల అయి ఉండవచ్చు. TinEye JPEG, PNG, "
-"GIF, BMP, TIFF లేదా WebP చిత్రాలకు మాత్రమే సపోర్ట్ ఇస్తుంది."
+"ఆ చిత్ర urlని చదవడం సాధ్యపడలేదు. ఇది సపోర్ట్ లేని ఫైల్ ఫార్మాట్ వల్ల అయి "
+"ఉండవచ్చు. TinEye JPEG, PNG, GIF, BMP, TIFF లేదా WebP చిత్రాలకు మాత్రమే "
+"సపోర్ట్ ఇస్తుంది."
 
 #: searx/engines/tineye.py:51
 msgid ""
 "The image is too simple to find matches. TinEye requires a basic level of"
 " visual detail to successfully identify matches."
 msgstr ""
-"చిత్రం సరిపోలికలను కనుగొనడానికి చాలా సాధారణంగా ఉంది. మ్యాచ్‌లను సక్రమంగా గుర్తించడానికి TinEyeకి ప్రాథమిక స్థాయి దృశ్య "
-"వివరాలు అవసరం."
+"చిత్రం సరిపోలికలను కనుగొనడానికి చాలా సాధారణంగా ఉంది. మ్యాచ్‌లను సక్రమంగా "
+"గుర్తించడానికి TinEyeకి ప్రాథమిక స్థాయి దృశ్య వివరాలు అవసరం."
 
 #: searx/engines/tineye.py:57
 msgid "The image could not be downloaded."
@@ -500,7 +523,7 @@ msgstr "పుస్తకం రేటింగు"
 msgid "File quality"
 msgstr "ఫైలు క్వాలిటీ"
 
-#: searx/plugins/calculator.py:12
+#: searx/plugins/calculator.py:14
 msgid "Calculate mathematical expressions via the search bar"
 msgstr "సెర్చ్ బార్ ద్వారా గణిత సమీకరణలను లెక్కించండి"
 
@@ -649,26 +672,26 @@ msgstr "నిర్వహించేవాడిని సంప్రది�
 msgid "Click on the magnifier to perform search"
 msgstr "శోధనను నిర్వహించడానికి మాగ్నిఫైయర్‌పై క్లిక్ చేయండి"
 
-#: searx/templates/simple/macros.html:35
+#: searx/templates/simple/macros.html:40
 msgid "Length"
 msgstr "పొడవు"
 
-#: searx/templates/simple/macros.html:36
+#: searx/templates/simple/macros.html:41
 msgid "Views"
 msgstr ""
 
-#: searx/templates/simple/macros.html:37
+#: searx/templates/simple/macros.html:42
 #: searx/templates/simple/result_templates/files.html:34
 #: searx/templates/simple/result_templates/images.html:19
 #: searx/templates/simple/result_templates/paper.html:6
 msgid "Author"
 msgstr "రచయిత"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:50
 msgid "cached"
 msgstr "కాష్ చేయబడింది"
 
-#: searx/templates/simple/macros.html:45
+#: searx/templates/simple/macros.html:50
 msgid "proxied"
 msgstr "ప్రాక్సీడ్"
 
@@ -741,27 +764,27 @@ msgstr "సాధారణ"
 msgid "Default categories"
 msgstr "నిష్క్రియ వర్గాలు"
 
-#: searx/templates/simple/preferences.html:187
+#: searx/templates/simple/preferences.html:190
 msgid "User interface"
 msgstr "వినియోగ మార్గము"
 
-#: searx/templates/simple/preferences.html:208
+#: searx/templates/simple/preferences.html:211
 msgid "Privacy"
 msgstr "ఆంతరంగికత"
 
-#: searx/templates/simple/preferences.html:221
+#: searx/templates/simple/preferences.html:224
 msgid "Engines"
 msgstr "యంత్రాలు"
 
-#: searx/templates/simple/preferences.html:223
+#: searx/templates/simple/preferences.html:226
 msgid "Currently used search engines"
 msgstr "ప్రస్తుతం ఉపయోగించబడుతున్న శోధన యంత్రాలు"
 
-#: searx/templates/simple/preferences.html:231
+#: searx/templates/simple/preferences.html:234
 msgid "Special Queries"
 msgstr "ప్రత్యేక ప్రశ్నలు"
 
-#: searx/templates/simple/preferences.html:237
+#: searx/templates/simple/preferences.html:240
 msgid "Cookies"
 msgstr "కుకీలు"
 
@@ -1178,6 +1201,14 @@ msgstr ""
 #: searx/templates/simple/preferences/engines.html:33
 msgid "Max time"
 msgstr "గరిష్ఠ సమయం"
+
+#: searx/templates/simple/preferences/favicon.html:2
+msgid "Favicon Resolver"
+msgstr ""
+
+#: searx/templates/simple/preferences/favicon.html:15
+msgid "Display favicons near search results"
+msgstr ""
 
 #: searx/templates/simple/preferences/footer.html:2
 msgid ""
@@ -1907,3 +1938,4 @@ msgstr "వీడియోను దాచిపెట్టు"
 
 #~ msgid "Engines cannot retrieve results"
 #~ msgstr "యంత్రాలు ఫలితాలను రాబట్టలేకపోతున్నాయి"
+
