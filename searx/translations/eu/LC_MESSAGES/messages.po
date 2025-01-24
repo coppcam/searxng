@@ -11,14 +11,15 @@
 # Markus Heiser <markus.heiser@darmarit.de>, 2023.
 # return42 <markus.heiser@darmarit.de>, 2023, 2024.
 # alexgabi <alexgabi@disroot.org>, 2023, 2024.
-# alexgabi <alexgabi@users.noreply.translate.codeberg.org>, 2024.
-# return42 <return42@users.noreply.translate.codeberg.org>, 2024.
+# alexgabi <alexgabi@users.noreply.translate.codeberg.org>, 2024, 2025.
+# return42 <return42@users.noreply.translate.codeberg.org>, 2024, 2025.
+# Anonymous <anonymous@users.noreply.translate.codeberg.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-16 08:30+0000\n"
-"PO-Revision-Date: 2024-11-25 12:40+0000\n"
+"POT-Creation-Date: 2025-01-06 16:16+0000\n"
+"PO-Revision-Date: 2025-01-06 15:53+0000\n"
 "Last-Translator: return42 <return42@users.noreply.translate.codeberg.org>"
 "\n"
 "Language: eu\n"
@@ -168,7 +169,7 @@ msgstr "iluna"
 #. STYLE_NAMES['BLACK']
 #: searx/searxng.msg
 msgid "black"
-msgstr ""
+msgstr "beltza"
 
 #. BRAND_CUSTOM_LINKS['UPTIME']
 #: searx/searxng.msg
@@ -361,15 +362,15 @@ msgstr "Iturria"
 msgid "Error loading the next page"
 msgstr "Errorea hurrengo orrialdea kargatzean"
 
-#: searx/webapp.py:496 searx/webapp.py:904
+#: searx/webapp.py:492 searx/webapp.py:900
 msgid "Invalid settings, please edit your preferences"
 msgstr "Ezarpen baliogabeak, editatu zure hobespenak"
 
-#: searx/webapp.py:512
+#: searx/webapp.py:508
 msgid "Invalid settings"
 msgstr "Ezarpen baliogabeak"
 
-#: searx/webapp.py:589 searx/webapp.py:679
+#: searx/webapp.py:585 searx/webapp.py:675
 msgid "search error"
 msgstr "bilaketa akatsa"
 
@@ -455,7 +456,7 @@ msgstr "Kalkulatu argumentuen {funtzioak}"
 
 #: searx/engines/mozhi.py:57
 msgid "Synonyms"
-msgstr ""
+msgstr "Sinonimoak"
 
 #: searx/engines/openstreetmap.py:159
 msgid "Get directions"
@@ -1219,12 +1220,13 @@ msgid "Max time"
 msgstr "Gehienezko denbora"
 
 #: searx/templates/simple/preferences/favicon.html:2
+#, fuzzy
 msgid "Favicon Resolver"
-msgstr ""
+msgstr "Favicon Resolver"
 
 #: searx/templates/simple/preferences/favicon.html:15
 msgid "Display favicons near search results"
-msgstr ""
+msgstr "Erakutsi fabikonoak bilaketa-emaitzetatik gertu"
 
 #: searx/templates/simple/preferences/footer.html:2
 msgid ""
@@ -1376,19 +1378,19 @@ msgstr "Aldatu interfazearen hizkuntza"
 
 #: searx/templates/simple/preferences/urlformatting.html:2
 msgid "URL formatting"
-msgstr ""
+msgstr "URL formatua"
 
 #: searx/templates/simple/preferences/urlformatting.html:8
 msgid "Pretty"
-msgstr ""
+msgstr "Polita"
 
 #: searx/templates/simple/preferences/urlformatting.html:13
 msgid "Full"
-msgstr ""
+msgstr "Osoa"
 
 #: searx/templates/simple/preferences/urlformatting.html:18
 msgid "Host"
-msgstr ""
+msgstr "Ostalaria"
 
 #: searx/templates/simple/preferences/urlformatting.html:23
 msgid "Change result URL formatting"

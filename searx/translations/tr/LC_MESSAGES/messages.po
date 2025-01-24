@@ -16,19 +16,22 @@
 # plawlost <ceo@plawlabs.org>, 2023.
 # Oğuz Ersen <oguz@ersen.moe>, 2024.
 # ggnoredo <mail@fahriuzun.com>, 2024.
-# return42 <return42@users.noreply.translate.codeberg.org>, 2024.
-# Oğuz Ersen <ersen@users.noreply.translate.codeberg.org>, 2024.
+# return42 <return42@users.noreply.translate.codeberg.org>, 2024, 2025.
+# Oğuz Ersen <ersen@users.noreply.translate.codeberg.org>, 2024, 2025.
 # Quitaxd <Quitaxd@users.noreply.translate.codeberg.org>, 2024.
-# sygmamess <sygmamess@users.noreply.translate.codeberg.org>, 2024.
-# ahmetax <ahmetax@users.noreply.translate.codeberg.org>, 2024.
-# ulsaa <ulsaa@users.noreply.translate.codeberg.org>, 2024.
+# sygmamess <sygmamess@users.noreply.translate.codeberg.org>, 2024, 2025.
+# ahmetax <ahmetax@users.noreply.translate.codeberg.org>, 2024, 2025.
+# ulsaa <ulsaa@users.noreply.translate.codeberg.org>, 2024, 2025.
+# Anonymous <anonymous@users.noreply.translate.codeberg.org>, 2025.
+# ggnoredo <ggnoredo@users.noreply.translate.codeberg.org>, 2025.
+# plawlost <plawlost@users.noreply.translate.codeberg.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-16 08:30+0000\n"
-"PO-Revision-Date: 2024-11-25 12:40+0000\n"
-"Last-Translator: return42 <return42@users.noreply.translate.codeberg.org>"
+"POT-Creation-Date: 2025-01-06 16:16+0000\n"
+"PO-Revision-Date: 2025-01-06 15:53+0000\n"
+"Last-Translator: plawlost <plawlost@users.noreply.translate.codeberg.org>"
 "\n"
 "Language: tr\n"
 "Language-Team: Turkish "
@@ -370,15 +373,15 @@ msgstr "Kaynak"
 msgid "Error loading the next page"
 msgstr "Sonraki sayfa yüklenemedi"
 
-#: searx/webapp.py:496 searx/webapp.py:904
+#: searx/webapp.py:492 searx/webapp.py:900
 msgid "Invalid settings, please edit your preferences"
 msgstr "Geçersiz ayarlar, lütfen tercihlerinizi düzenleyin"
 
-#: searx/webapp.py:512
+#: searx/webapp.py:508
 msgid "Invalid settings"
 msgstr "Geçersiz ayarlar"
 
-#: searx/webapp.py:589 searx/webapp.py:679
+#: searx/webapp.py:585 searx/webapp.py:675
 msgid "search error"
 msgstr "arama hatası"
 
@@ -1387,7 +1390,7 @@ msgstr "Düzen dilini değiştirin"
 
 #: searx/templates/simple/preferences/urlformatting.html:2
 msgid "URL formatting"
-msgstr ""
+msgstr "URL Formatı"
 
 #: searx/templates/simple/preferences/urlformatting.html:8
 msgid "Pretty"
