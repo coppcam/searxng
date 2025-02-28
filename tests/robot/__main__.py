@@ -1,13 +1,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
+# pylint: disable=missing-module-docstring,disable=missing-class-docstring,invalid-name
 """Shared testing code."""
-
-# pylint: disable=missing-function-docstring
 
 import sys
 import os
 import subprocess
 import traceback
 import pathlib
+import shutil
 
 from splinter import Browser
 
@@ -54,6 +54,9 @@ class SearxRobotLayer:
 
 def run_robot_tests(tests):
     print('Running {0} tests'.format(len(tests)))
+    print(f'{shutil.which("geckodriver")}')
+    print(f'{shutil.which("firefox")}')
+
     for test in tests:
         with Browser('firefox', headless=True, profile_preferences={'intl.accept_languages': 'en'}) as browser:
             test(browser)

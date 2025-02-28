@@ -52,7 +52,7 @@ Example
 =======
 
 Here is a simple example of a XPath engine configured in the :ref:`settings
-engine` section, further read :ref:`engines-dev`.
+engines` section, further read :ref:`engines-dev`.
 
 .. code:: yaml
 
@@ -74,6 +74,7 @@ from urllib.parse import urlencode
 from lxml import html
 from searx.utils import extract_text, extract_url, eval_xpath, eval_xpath_list
 from searx.network import raise_for_httperror
+from searx.result_types import EngineResults
 
 search_url = None
 """
@@ -261,14 +262,14 @@ def request(query, params):
     return params
 
 
-def response(resp):  # pylint: disable=too-many-branches
-    '''Scrap *results* from the response (see :ref:`engine results`).'''
+def response(resp) -> EngineResults:  # pylint: disable=too-many-branches
+    """Scrap *results* from the response (see :ref:`result types`)."""
+    results = EngineResults()
+
     if no_result_for_http_status and resp.status_code in no_result_for_http_status:
-        return []
+        return results
 
     raise_for_httperror(resp)
-
-    results = []
 
     if not resp.text:
         return results

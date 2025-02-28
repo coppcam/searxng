@@ -45,6 +45,7 @@ from ipaddress import (
 import flask
 import werkzeug
 
+from searx.extended_types import SXNG_Request
 from searx import redisdb
 from searx.redislib import incr_sliding_window, drop_counter
 
@@ -91,7 +92,7 @@ SUSPICIOUS_IP_MAX = 3
 
 def filter_request(
     network: IPv4Network | IPv6Network,
-    request: flask.Request,
+    request: SXNG_Request,
     cfg: config.Config,
 ) -> werkzeug.Response | None:
 
@@ -122,7 +123,9 @@ def filter_request(
         )
         if c > SUSPICIOUS_IP_MAX:
             logger.error("BLOCK: too many request from %s in SUSPICIOUS_IP_WINDOW (redirect to /)", network)
-            return flask.redirect(flask.url_for('index'), code=302)
+            response = flask.redirect(flask.url_for('index'), code=302)
+            response.headers["Cache-Control"] = "no-store, max-age=0"
+            return response
 
         c = incr_sliding_window(redis_client, 'ip_limit.BURST_WINDOW' + network.compressed, BURST_WINDOW)
         if c > BURST_MAX_SUSPICIOUS:

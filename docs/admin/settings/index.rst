@@ -13,7 +13,7 @@ Settings
    :maxdepth: 2
 
    settings
-   settings_engine
+   settings_engines
    settings_brand
    settings_general
    settings_search
@@ -22,6 +22,6 @@ Settings
    settings_redis
    settings_outgoing
    settings_categories_as_tabs
-
+   settings_plugins
 
 

@@ -25,17 +25,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-06 16:16+0000\n"
-"PO-Revision-Date: 2025-01-06 15:52+0000\n"
-"Last-Translator: MusfiquerRhman "
-"<musfiquerrhman@users.noreply.translate.codeberg.org>\n"
+"POT-Creation-Date: 2025-01-29 05:08+0000\n"
+"PO-Revision-Date: 2025-02-11 15:21+0000\n"
+"Last-Translator: MonsoonFire "
+"<monsoonfire@users.noreply.translate.codeberg.org>\n"
+"Language-Team: Bengali <https://translate.codeberg.org/projects/searxng/"
+"searxng/bn/>\n"
 "Language: bn\n"
-"Language-Team: Bengali "
-"<https://translate.codeberg.org/projects/searxng/searxng/bn/>\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.9.2\n"
 "Generated-By: Babel 2.16.0\n"
 
 #. CONSTANT_NAMES['NO_SUBGROUPING']
@@ -171,12 +172,12 @@ msgstr "সাদা"
 #. STYLE_NAMES['DARK']
 #: searx/searxng.msg
 msgid "dark"
-msgstr "কালো"
+msgstr "অন্ধকার"
 
 #. STYLE_NAMES['BLACK']
 #: searx/searxng.msg
 msgid "black"
-msgstr ""
+msgstr "কালো"
 
 #. BRAND_CUSTOM_LINKS['UPTIME']
 #: searx/searxng.msg
@@ -184,7 +185,7 @@ msgid "Uptime"
 msgstr "চলনকাল"
 
 #. BRAND_CUSTOM_LINKS['ABOUT']
-#: searx/searxng.msg searx/templates/simple/base.html:50
+#: searx/searxng.msg searx/templates/simple/base.html:49
 msgid "About"
 msgstr "সম্বন্ধে"
 
@@ -356,28 +357,28 @@ msgstr "বন্ধ"
 msgid "answered"
 msgstr "উত্তরকৃত"
 
-#: searx/webapp.py:323
+#: searx/webapp.py:312
 msgid "No item found"
 msgstr "কোন আইটেম পাওয়া যায়নি"
 
 #: searx/engines/qwant.py:288
-#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:325
+#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:314
 msgid "Source"
 msgstr "উৎস"
 
-#: searx/webapp.py:327
+#: searx/webapp.py:316
 msgid "Error loading the next page"
 msgstr "পরবর্তী পৃষ্ঠাটি লোড করায় ত্রুটি দেখা যাচ্ছে"
 
-#: searx/webapp.py:492 searx/webapp.py:900
+#: searx/webapp.py:469 searx/webapp.py:875
 msgid "Invalid settings, please edit your preferences"
 msgstr "অকেজো সেটিংস, অনুগ্রহ করে আপনার পছন্দগুলি সম্পাদনা করুন"
 
-#: searx/webapp.py:508
+#: searx/webapp.py:485
 msgid "Invalid settings"
 msgstr "অকেজো সেটিংস"
 
-#: searx/webapp.py:585 searx/webapp.py:675
+#: searx/webapp.py:562 searx/webapp.py:652
 msgid "search error"
 msgstr "সার্চ ত্রুটি"
 
@@ -445,29 +446,17 @@ msgstr "{minutes} মিনিট আগে"
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} ঘণ্টা, {minutes} মিনিট আগে"
 
-#: searx/answerers/random/answerer.py:76
-msgid "Random value generator"
-msgstr "এলোমেলো মান জেনারেটর"
-
-#: searx/answerers/random/answerer.py:77
+#: searx/answerers/random.py:69
 msgid "Generate different random values"
 msgstr "বিভিন্ন এলোমেলো মান তৈরি করুন"
 
-#: searx/answerers/statistics/answerer.py:50
-msgid "Statistics functions"
-msgstr "পরিসংখ্যান কার্যাবলী"
+#: searx/answerers/statistics.py:36
+msgid "Compute {func} of the arguments"
+msgstr "{func} এই আদেশ কম্পিউট করো"
 
-#: searx/answerers/statistics/answerer.py:51
-msgid "Compute {functions} of the arguments"
-msgstr "আর্গুমেন্টগুলির {functions} গণনা করুন৷"
-
-#: searx/engines/mozhi.py:57
-msgid "Synonyms"
-msgstr ""
-
-#: searx/engines/openstreetmap.py:159
-msgid "Get directions"
-msgstr "দিকনির্দেশ পান"
+#: searx/engines/openstreetmap.py:158
+msgid "Show route in map .."
+msgstr "মানচিত্রে সেরা রাস্তা দেখাও .।"
 
 #: searx/engines/pdbe.py:96
 msgid "{title} (OBSOLETE)"
@@ -506,7 +495,7 @@ msgstr ""
 "{numCitations} উদ্ধৃতি সাল {firstCitationVelocityYear} থেকে "
 "{lastCitationVelocityYear}"
 
-#: searx/engines/tineye.py:45
+#: searx/engines/tineye.py:47
 msgid ""
 "Could not read that image url. This may be due to an unsupported file "
 "format. TinEye only supports images that are JPEG, PNG, GIF, BMP, TIFF or"
@@ -516,7 +505,7 @@ msgstr ""
 "পারার জন্যে। TinEye কেবল JPEG, PNG, GIF, BMP, TIFF আর WebP ফরম্যাট কে "
 "পড়তে পারে।"
 
-#: searx/engines/tineye.py:51
+#: searx/engines/tineye.py:53
 msgid ""
 "The image is too simple to find matches. TinEye requires a basic level of"
 " visual detail to successfully identify matches."
@@ -524,7 +513,7 @@ msgstr ""
 "এই ছবিটি খুবই সাধারণ হওয়ায় কোন মিল পাওয়া যাচ্ছে না। TinEye এর একটু "
 "চাক্ষুষ বিস্তর প্রয়োজন সফল ভাবে মিল পাওয়ার জন্যে ।"
 
-#: searx/engines/tineye.py:57
+#: searx/engines/tineye.py:59
 msgid "The image could not be downloaded."
 msgstr "ছবিটি ডাউনলোড করা যায়নি ।"
 
@@ -536,31 +525,35 @@ msgstr "বই পর্যালোচনা"
 msgid "File quality"
 msgstr "নথি মান"
 
-#: searx/plugins/calculator.py:18
+#: searx/plugins/calculator.py:20
 msgid "Calculate mathematical expressions via the search bar"
 msgstr "সার্চ বারের মাধমে গানিতিক সমীকরণ সমাধান করুন"
 
-#: searx/plugins/hash_plugin.py:10
+#: searx/plugins/hash_plugin.py:34
+msgid "Hash plugin"
+msgstr "হ্যাশ প্লাগিন"
+
+#: searx/plugins/hash_plugin.py:35
 msgid "Converts strings to different hash digests."
 msgstr "স্ট্রিংগুলিকে বিভিন্ন হ্যাশ ডাইজেস্টে রূপান্তর করে।"
 
-#: searx/plugins/hash_plugin.py:38
+#: searx/plugins/hash_plugin.py:62
 msgid "hash digest"
 msgstr "হ্যাশ ডাইজেস্ট"
 
-#: searx/plugins/hostnames.py:103
+#: searx/plugins/hostnames.py:105
 msgid "Hostnames plugin"
 msgstr "হোস্টনেম প্লাগিন"
 
-#: searx/plugins/hostnames.py:104
+#: searx/plugins/hostnames.py:106
 msgid "Rewrite hostnames, remove results or prioritize them based on the hostname"
 msgstr "হোস্টনাম পুনর্লিখন করো, ফলাফল অপসারণ করো বা হোস্টনামের ভিত্তিতে সাজাও"
 
-#: searx/plugins/oa_doi_rewrite.py:12
+#: searx/plugins/oa_doi_rewrite.py:15
 msgid "Open Access DOI rewrite"
 msgstr "পুনর্লিখিত DOI উন্মুক্ত প্রবেশ"
 
-#: searx/plugins/oa_doi_rewrite.py:13
+#: searx/plugins/oa_doi_rewrite.py:16
 msgid ""
 "Avoid paywalls by redirecting to open-access versions of publications "
 "when available"
@@ -568,31 +561,31 @@ msgstr ""
 "Paywall এড়িয়ে চলতে প্রকাশন গুলির open-access সংস্করণে রিডাইরেক্ট করুন "
 "উপলব্ধ থাকলে"
 
-#: searx/plugins/self_info.py:9
+#: searx/plugins/self_info.py:37
 msgid "Self Information"
 msgstr "নিজ তথ্য"
 
-#: searx/plugins/self_info.py:10
+#: searx/plugins/self_info.py:38
 msgid ""
 "Displays your IP if the query is \"ip\" and your user agent if the query "
-"contains \"user agent\"."
+"is \"user-agent\"."
 msgstr ""
-"ক্যোয়ারীটি \"ip\" হলে আপনার আইপি এবং যদি ক্যোয়ারীতে \"ব্যবহারকারী "
-"এজেন্ট\" থাকে তাহলে আপনার ব্যবহারকারী এজেন্ট প্রদর্শন করে।"
+"তোমার আইপি দেখাও যদি তোমার অনুসন্ধান \"ip\" হয় ও তোমার ইউজার এজেন্ট দেখাও যদি "
+"অনুসন্ধান \"user-agent\" হয়।"
 
-#: searx/plugins/self_info.py:28
+#: searx/plugins/self_info.py:52
 msgid "Your IP is: "
 msgstr "তোমার আইপি: "
 
-#: searx/plugins/self_info.py:31
+#: searx/plugins/self_info.py:55
 msgid "Your user-agent is: "
 msgstr "তোমার ইউজার-এজেন্ট: "
 
-#: searx/plugins/tor_check.py:24
+#: searx/plugins/tor_check.py:29
 msgid "Tor check plugin"
 msgstr "টর চেক প্লাগইন"
 
-#: searx/plugins/tor_check.py:27
+#: searx/plugins/tor_check.py:32
 msgid ""
 "This plugin checks if the address of the request is a Tor exit-node, and "
 "informs the user if it is; like check.torproject.org, but from SearXNG."
@@ -601,35 +594,27 @@ msgstr ""
 "ব্যবহারকারীকে জানিয়ে দেয় যে এটি কিনা, যেমন check.torproject.org কিন্তু "
 "SearXNG থেকে।"
 
-#: searx/plugins/tor_check.py:61
-msgid ""
-"Could not download the list of Tor exit-nodes from: "
-"https://check.torproject.org/exit-addresses"
-msgstr "টর exit-node থেকে লিস্ট ডাউনলোড করা যায়নি"
+#: searx/plugins/tor_check.py:69
+msgid "Could not download the list of Tor exit-nodes from"
+msgstr "টর এক্সিট-নোডের তালিকা নামানো সম্ভব হয়নি এখান থেকে"
 
-#: searx/plugins/tor_check.py:77
-msgid ""
-"You are using Tor and it looks like you have this external IP address: "
-"{ip_address}"
-msgstr ""
-"আপনি টর ব্যবহার করছেন এবং মনে হচ্ছে এটি আপনার বাহ্যিক আইপি অ্যাড্রেসঃ "
-"{ip_address}"
+#: searx/plugins/tor_check.py:81
+msgid "You are using Tor and it looks like you have the external IP address"
+msgstr "তুমি টর ব্যবহার করছো এবং সম্ভবত বাইরের আইপি ঠিকানা তোমার"
 
 #: searx/plugins/tor_check.py:85
-msgid "You are not using Tor and you have this external IP address: {ip_address}"
-msgstr ""
-"আপনি টর ব্যবহার করছেন না এবং মনে হচ্ছে এটি আপনার বাহ্যিক আইপি অ্যাড্রেসঃ "
-"{ip_address}"
+msgid "You are not using Tor and you have the external IP address"
+msgstr "তুমি টর ব্যবহার করছো না এবং বাইরের আইপি ঠিকানা তোমার"
 
-#: searx/plugins/tracker_url_remover.py:16
+#: searx/plugins/tracker_url_remover.py:18
 msgid "Tracker URL remover"
 msgstr "ট্র্যাকার URL রিমুভার"
 
-#: searx/plugins/tracker_url_remover.py:17
+#: searx/plugins/tracker_url_remover.py:19
 msgid "Remove trackers arguments from the returned URL"
 msgstr "ফিরে আসা URL থেকে ট্র্যাকার আর্গুমেন্টগুলি সরান৷"
 
-#: searx/plugins/unit_converter.py:29
+#: searx/plugins/unit_converter.py:32
 msgid "Convert between units"
 msgstr "এক একক থেকে অন্য এককে রুপান্তর"
 
@@ -646,45 +631,45 @@ msgstr "%(search_page)s এ যান৷"
 msgid "search page"
 msgstr "অনুসন্ধান পৃষ্ঠা"
 
-#: searx/templates/simple/base.html:54
+#: searx/templates/simple/base.html:53
 msgid "Donate"
 msgstr "দান করুন"
 
-#: searx/templates/simple/base.html:58
+#: searx/templates/simple/base.html:57
 #: searx/templates/simple/preferences.html:156
 msgid "Preferences"
 msgstr "পছন্দসমূহ"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:67
 msgid "Powered by"
 msgstr "দ্বারা চালিত"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:67
 msgid "a privacy-respecting, open metasearch engine"
 msgstr "একটি গোপনীয়তা-সম্মানকারী, খোলা মেটাসার্চ ইঞ্জিন"
 
-#: searx/templates/simple/base.html:69
+#: searx/templates/simple/base.html:68
 #: searx/templates/simple/result_templates/packages.html:59
 msgid "Source code"
 msgstr "সোর্স কোড"
 
-#: searx/templates/simple/base.html:70
+#: searx/templates/simple/base.html:69
 msgid "Issue tracker"
 msgstr "সমস্যা অনুসরণ"
 
-#: searx/templates/simple/base.html:71 searx/templates/simple/stats.html:18
+#: searx/templates/simple/base.html:70 searx/templates/simple/stats.html:18
 msgid "Engine stats"
 msgstr "ইঞ্জিন পরিসংখ্যান"
 
-#: searx/templates/simple/base.html:73
+#: searx/templates/simple/base.html:72
 msgid "Public instances"
 msgstr "পাবলিক ইন্সট্যান্স"
 
-#: searx/templates/simple/base.html:76
+#: searx/templates/simple/base.html:75
 msgid "Privacy policy"
 msgstr "গোপনীয়তা নীতি"
 
-#: searx/templates/simple/base.html:79
+#: searx/templates/simple/base.html:78
 msgid "Contact instance maintainer"
 msgstr "ইন্সট্যান্স রক্ষণাবেক্ষণকারীর সাথে যোগাযোগ করুন"
 
@@ -780,63 +765,55 @@ msgstr "পরীক্ষা(গুলি) ব্যর্থ: "
 msgid "Errors:"
 msgstr "ত্রুটি:"
 
-#: searx/templates/simple/preferences.html:162
+#: searx/templates/simple/preferences.html:163
 msgid "General"
 msgstr "সাধারণ"
 
-#: searx/templates/simple/preferences.html:165
+#: searx/templates/simple/preferences.html:166
 msgid "Default categories"
 msgstr "ডিফল্ট বিভাগ"
 
-#: searx/templates/simple/preferences.html:190
+#: searx/templates/simple/preferences.html:194
 msgid "User interface"
 msgstr "ব‍্যবহারকারীর সম্মুখে প্রদর্শিত"
 
-#: searx/templates/simple/preferences.html:212
+#: searx/templates/simple/preferences.html:217
 msgid "Privacy"
 msgstr "গোপনীয়তা"
 
-#: searx/templates/simple/preferences.html:225
+#: searx/templates/simple/preferences.html:232
 msgid "Engines"
 msgstr "ইঞ্জিন"
 
-#: searx/templates/simple/preferences.html:227
+#: searx/templates/simple/preferences.html:234
 msgid "Currently used search engines"
 msgstr "বর্তমানে ব্যবহৃত সার্চ ইঞ্জিন"
 
-#: searx/templates/simple/preferences.html:235
+#: searx/templates/simple/preferences.html:243
 msgid "Special Queries"
 msgstr "বিশেষ প্রশ্ন"
 
-#: searx/templates/simple/preferences.html:241
+#: searx/templates/simple/preferences.html:251
 msgid "Cookies"
 msgstr "কুকি"
 
-#: searx/templates/simple/results.html:23
-msgid "Answers"
-msgstr "উত্তর"
-
-#: searx/templates/simple/results.html:42
+#: searx/templates/simple/results.html:30
 msgid "Number of results"
 msgstr "ফলাফলের সংখ্যা"
 
-#: searx/templates/simple/results.html:48
+#: searx/templates/simple/results.html:36
 msgid "Info"
 msgstr "তথ্য"
 
-#: searx/templates/simple/results.html:75
-msgid "Try searching for:"
-msgstr "এটি খোঁজার চেষ্টা করুন:"
-
-#: searx/templates/simple/results.html:107
+#: searx/templates/simple/results.html:77
 msgid "Back to top"
 msgstr "উপরে ফিরে যান"
 
-#: searx/templates/simple/results.html:125
+#: searx/templates/simple/results.html:95
 msgid "Previous page"
 msgstr "পূর্ববর্তী পেইজ"
 
-#: searx/templates/simple/results.html:143
+#: searx/templates/simple/results.html:113
 msgid "Next page"
 msgstr "পরবর্তী পেইজ"
 
@@ -948,9 +925,30 @@ msgstr "পরীক্ষায় ব্যর্থ"
 msgid "Comment(s)"
 msgstr "মন্তব্য"
 
+#: searx/templates/simple/answer/translations.html:12
+#: searx/templates/simple/preferences/answerers.html:8
+msgid "Examples"
+msgstr "উদাহরণ"
+
+#: searx/templates/simple/answer/translations.html:21
+msgid "Definitions"
+msgstr "সংজ্ঞা"
+
+#: searx/templates/simple/answer/translations.html:30
+msgid "Synonyms"
+msgstr "সমার্থক শব্দ"
+
+#: searx/templates/simple/elements/answers.html:2
+msgid "Answers"
+msgstr "উত্তর"
+
 #: searx/templates/simple/elements/apis.html:3
 msgid "Download results"
 msgstr "ডাউনলোডগুলোর ফলাফল"
+
+#: searx/templates/simple/elements/corrections.html:2
+msgid "Try searching for:"
+msgstr "এটি খোঁজার চেষ্টা করুন:"
 
 #: searx/templates/simple/elements/engines_msg.html:4
 msgid "Messages from the search engines"
@@ -1092,8 +1090,8 @@ msgid "Allow"
 msgstr "অনুমোদন"
 
 #: searx/templates/simple/preferences/answerers.html:5
-msgid "Keywords"
-msgstr "মূলশব্দ"
+msgid "Keywords (first word in query)"
+msgstr "বিশেষ শব্দ (কুয়েরির প্রথম শব্দ)"
 
 #: searx/templates/simple/preferences/answerers.html:6
 #: searx/templates/simple/result_templates/packages.html:7
@@ -1103,10 +1101,6 @@ msgstr "নাম"
 #: searx/templates/simple/preferences/answerers.html:7
 msgid "Description"
 msgstr "বর্ণনা"
-
-#: searx/templates/simple/preferences/answerers.html:8
-msgid "Examples"
-msgstr "উদাহরণ"
 
 #: searx/templates/simple/preferences/answerers.html:13
 msgid "This is the list of SearXNG's instant answering modules."
@@ -1186,11 +1180,15 @@ msgstr "অনুলিপিকৃত হ্যাশ এখানে দাও
 msgid "Preferences hash"
 msgstr "পছন্দসমূহের হ্যাশ"
 
-#: searx/templates/simple/preferences/doi_resolver.html:2
+#: searx/templates/simple/preferences/doi_resolver.html:1
+msgid "Digital Object Identifier (DOI)"
+msgstr "ডিজিটাল অবজেক্ট আইডেন্টিফায়ার (ডই)"
+
+#: searx/templates/simple/preferences/doi_resolver.html:6
 msgid "Open Access DOI resolver"
 msgstr "উন্মুক্ত প্রবেশাধিকারযুক্ত DOI সমাধানদাতা"
 
-#: searx/templates/simple/preferences/doi_resolver.html:14
+#: searx/templates/simple/preferences/doi_resolver.html:18
 msgid "Select service used by DOI rewrite"
 msgstr "পুনর্লিখিত DOI দ্বারা ব্যবহৃত সার্ভিস নির্বাচিত করুণ"
 
@@ -1228,11 +1226,11 @@ msgstr "সর্বোচ্চ সময়"
 
 #: searx/templates/simple/preferences/favicon.html:2
 msgid "Favicon Resolver"
-msgstr ""
+msgstr "ফ্যাভিকন আমদানিকারক"
 
 #: searx/templates/simple/preferences/favicon.html:15
 msgid "Display favicons near search results"
-msgstr ""
+msgstr "অনুসন্ধানকৃত ফলাফলের কাছে ফ্যাভিকন দেখাও"
 
 #: searx/templates/simple/preferences/footer.html:2
 msgid ""
@@ -1382,23 +1380,23 @@ msgstr "লে আউটের ভাষা পরিবর্তন করু�
 
 #: searx/templates/simple/preferences/urlformatting.html:2
 msgid "URL formatting"
-msgstr ""
+msgstr "ইউআরএল ফরম্যাটকরণ"
 
 #: searx/templates/simple/preferences/urlformatting.html:8
 msgid "Pretty"
-msgstr ""
+msgstr "সুন্দর"
 
 #: searx/templates/simple/preferences/urlformatting.html:13
 msgid "Full"
-msgstr ""
+msgstr "সম্পূর্ণ"
 
 #: searx/templates/simple/preferences/urlformatting.html:18
 msgid "Host"
-msgstr ""
+msgstr "হোস্ট"
 
 #: searx/templates/simple/preferences/urlformatting.html:23
 msgid "Change result URL formatting"
-msgstr ""
+msgstr "ইউআরএল ফরম্যাটের ফলাফল পাল্টাও"
 
 #: searx/templates/simple/result_templates/code.html:13
 msgid "repo"
@@ -1765,3 +1763,54 @@ msgstr "ভিডিও লুকিয়ে ফেলুন"
 #~ msgid "dummy"
 #~ msgstr ""
 
+#~ msgid "Random value generator"
+#~ msgstr "এলোমেলো মান জেনারেটর"
+
+#~ msgid "Statistics functions"
+#~ msgstr "পরিসংখ্যান কার্যাবলী"
+
+#~ msgid "Compute {functions} of the arguments"
+#~ msgstr "আর্গুমেন্টগুলির {functions} গণনা করুন৷"
+
+#~ msgid "Get directions"
+#~ msgstr "দিকনির্দেশ পান"
+
+#~ msgid ""
+#~ "Displays your IP if the query is"
+#~ " \"ip\" and your user agent if "
+#~ "the query contains \"user agent\"."
+#~ msgstr ""
+#~ "ক্যোয়ারীটি \"ip\" হলে আপনার আইপি এবং"
+#~ " যদি ক্যোয়ারীতে \"ব্যবহারকারী এজেন্ট\" "
+#~ "থাকে তাহলে আপনার ব্যবহারকারী এজেন্ট "
+#~ "প্রদর্শন করে।"
+
+#~ msgid ""
+#~ "Could not download the list of Tor"
+#~ " exit-nodes from: https://check.torproject.org"
+#~ "/exit-addresses"
+#~ msgstr "টর exit-node থেকে লিস্ট ডাউনলোড করা যায়নি"
+
+#~ msgid ""
+#~ "You are using Tor and it looks "
+#~ "like you have this external IP "
+#~ "address: {ip_address}"
+#~ msgstr ""
+#~ "আপনি টর ব্যবহার করছেন এবং মনে "
+#~ "হচ্ছে এটি আপনার বাহ্যিক আইপি অ্যাড্রেসঃ"
+#~ " {ip_address}"
+
+#~ msgid ""
+#~ "You are not using Tor and you "
+#~ "have this external IP address: "
+#~ "{ip_address}"
+#~ msgstr ""
+#~ "আপনি টর ব্যবহার করছেন না এবং মনে"
+#~ " হচ্ছে এটি আপনার বাহ্যিক আইপি "
+#~ "অ্যাড্রেসঃ {ip_address}"
+
+#~ msgid "Keywords"
+#~ msgstr "মূলশব্দ"
+
+#~ msgid "/"
+#~ msgstr ""

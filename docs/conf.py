@@ -54,7 +54,7 @@ searx.engines.load_engines(searx.settings['engines'])
 jinja_contexts = {
     'searx': {
         'engines': searx.engines.engines,
-        'plugins': searx.plugins.plugins,
+        'plugins': searx.plugins.STORAGE,
         'version': {
             'node': os.getenv('NODE_MINIMUM_VERSION')
         },
@@ -129,8 +129,9 @@ extensions = [
     'notfound.extension',  # https://github.com/readthedocs/sphinx-notfound-page
 ]
 
+# autodoc_typehints = "description"
 autodoc_default_options = {
-    'member-order': 'groupwise',
+    'member-order': 'bysource',
 }
 
 myst_enable_extensions = [
@@ -142,10 +143,10 @@ suppress_warnings = ['myst.domains']
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     "babel" : ("https://babel.readthedocs.io/en/latest/", None),
-    "flask": ("https://flask.palletsprojects.com/", None),
+    "flask": ("https://flask.palletsprojects.com/en/stable/", None),
     "flask_babel": ("https://python-babel.github.io/flask-babel/", None),
-    # "werkzeug": ("https://werkzeug.palletsprojects.com/", None),
-    "jinja": ("https://jinja.palletsprojects.com/", None),
+    "werkzeug": ("https://werkzeug.palletsprojects.com/en/stable/", None),
+    "jinja": ("https://jinja.palletsprojects.com/en/stable/", None),
     "linuxdoc" : ("https://return42.github.io/linuxdoc/", None),
     "sphinx" : ("https://www.sphinx-doc.org/en/master/", None),
     "redis": ('https://redis.readthedocs.io/en/stable/', None),
@@ -196,7 +197,7 @@ html_sidebars = {
     ],
 }
 singlehtml_sidebars = {"index": ["project.html", "localtoc.html"]}
-html_logo = "../src/brand/searxng-wordmark.svg"
+html_logo = "../client/simple/src/brand/searxng-wordmark.svg"
 html_title = "SearXNG Documentation ({})".format(VERSION_STRING)
 html_show_sourcelink = True
 
