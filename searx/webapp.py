@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 # SPDX-License-Identifier: AGPL-3.0-or-later
-"""WebbApp
-
-"""
+"""WebApp"""
 # pylint: disable=use-dict-literal
 from __future__ import annotations
 
-import inspect
 import json
 import os
 import sys
@@ -28,7 +25,8 @@ from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter  # pylint: disable=no-name-in-module
 
-from werkzeug.serving import is_running_from_reloader
+from whitenoise import WhiteNoise
+from whitenoise.base import Headers
 
 import flask
 
@@ -147,7 +145,7 @@ STATS_SORT_PARAMETERS = {
 }
 
 # Flask app
-app = Flask(__name__, static_folder=settings['ui']['static_path'], template_folder=templates_path)
+app = Flask(__name__, static_folder=None, template_folder=templates_path)
 
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
@@ -245,6 +243,7 @@ def custom_url_for(endpoint: str, **values):
     if not _STATIC_FILES:
         _STATIC_FILES = webutils.get_static_file_list()
 
+    # handled by WhiteNoise
     if endpoint == "static" and values.get("filename"):
 
         # We need to verify the "filename" argument: in the jinja templates
@@ -257,9 +256,12 @@ def custom_url_for(endpoint: str, **values):
         if arg_filename not in _STATIC_FILES:
             # try file in the current theme
             theme_name = sxng_request.preferences.get_value("theme")
-            arg_filename = f"themes/{theme_name}/{arg_filename}"
-            if arg_filename in _STATIC_FILES:
-                values["filename"] = arg_filename
+            theme_filename = f"themes/{theme_name}/{arg_filename}"
+            if theme_filename in _STATIC_FILES:
+                values["filename"] = theme_filename
+
+        app_prefix = url_for("index")
+        return f"{app_prefix}static/{values['filename']}"
 
     if endpoint == "info" and "locale" not in values:
 
@@ -1358,38 +1360,6 @@ def run():
         app.run(port=port, host=host, threaded=True)
 
 
-def is_werkzeug_reload_active() -> bool:
-    """Returns ``True`` if server is is launched by :ref:`werkzeug.serving` and
-    the ``use_reload`` argument was set to ``True``.  If this is the case, it
-    should be avoided that the server is initialized twice (:py:obj:`init`,
-    :py:obj:`run`).
-
-    .. _werkzeug.serving:
-       https://werkzeug.palletsprojects.com/en/stable/serving/#werkzeug.serving.run_simple
-    """
-    logger.debug("sys.argv: %s", sys.argv)
-    if "uwsgi" in sys.argv[0] or "granian" in sys.argv[0]:
-        # server was launched by granian (or uWSGI)
-        return False
-
-    # https://github.com/searxng/searxng/pull/1656#issuecomment-1214198941
-    # https://github.com/searxng/searxng/pull/1616#issuecomment-1206137468
-
-    frames = inspect.stack()
-
-    if len(frames) > 1 and frames[-2].filename.endswith('flask/cli.py'):
-        # server was launched by "flask run", is argument "--reload" set?
-        if "--reload" in sys.argv or "--debug" in sys.argv:
-            return True
-
-    elif frames[0].filename.endswith('searx/webapp.py'):
-        # server was launched by "python -m searx.webapp" / see run()
-        if searx.sxng_debug:
-            return True
-
-    return False
-
-
 def init():
 
     if searx.sxng_debug or app.debug:
@@ -1402,17 +1372,6 @@ def init():
         logger.error("server.secret_key is not changed. Please use something else instead of ultrasecretkey.")
         sys.exit(1)
 
-    # When automatic reloading is activated stop Flask from initialising twice.
-    # - https://github.com/pallets/flask/issues/5307#issuecomment-1774646119
-    # - https://stackoverflow.com/a/25504196
-
-    reloader_active = is_werkzeug_reload_active()
-    werkzeug_run_main = is_running_from_reloader()
-
-    if reloader_active and not werkzeug_run_main:
-        logger.info("in reloading mode and not in main loop, cancel the initialization")
-        return
-
     locales_initialize()
     valkey_initialize()
     searx.plugins.initialize(app)
@@ -1424,8 +1383,27 @@ def init():
     favicons.init()
 
 
-application = app
+def static_headers(headers: Headers, _path: str, _url: str) -> None:
+    headers['Cache-Control'] = 'public, max-age=30, stale-while-revalidate=60'
+
+    for header, value in settings['server']['default_http_headers'].items():
+        headers[header] = value
+
+
+app.wsgi_app = WhiteNoise(
+    app.wsgi_app,
+    root=settings['ui']['static_path'],
+    prefix="static",
+    max_age=None,
+    allow_all_origins=False,
+    add_headers_function=static_headers,
+)
+
 patch_application(app)
+
+# remove when we drop support for uwsgi
+application = app
+
 init()
 
 if __name__ == "__main__":
