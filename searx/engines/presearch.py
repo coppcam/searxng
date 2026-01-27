@@ -137,10 +137,10 @@ def _get_request_id(query, params):
         # performs an IP-based geolocation of the user, we don't want that in
         # SearXNG ;-)
 
-        if l.territory:
+        if l and l.territory:
             headers['Accept-Language'] = f"{l.language}-{l.territory},{l.language};" "q=0.9,*;" "q=0.5"
 
-    resp = get(url, headers=headers)
+    resp = get(url, headers=headers, timeout=5)
 
     for line in resp.text.split("\n"):
         if "window.searchId = " in line:
