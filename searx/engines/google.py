@@ -69,7 +69,7 @@ filter_mapping = {0: "off", 1: "medium", 2: "high"}
 
 # Suggestions are links placed in a *card-section*, we extract only the text
 # from the links not the links itself.
-suggestion_xpath = '//div[contains(@class, "ouy7Mc")]//a'
+suggestion_xpath = '//div[contains(@class, "gGQDvd iIWm4b")]//a'
 
 
 _arcid_range = string.ascii_letters + string.digits + "_-"
@@ -328,14 +328,14 @@ def request(query: str, params: "OnlineParams") -> None:
 
 
 # regex match to get image map that is found inside the returned javascript:
-# (function(){google.ldi={ ... };google.pim={ ... };google.sib=false;google ...
-RE_DATA_IMAGE = re.compile(r'"((?:dimg|pimg|tsuid)_[^"]*)":"((?:https?:)?//[^"]*)')
+# (function(){var s='...';var i=['...'] ...}
+RE_DATA_IMAGE = re.compile(r"(data:image[^']*?)'[^']*?'((?:dimg|pimg|tsuid)[^']*)")
 
 
 def parse_url_images(text: str):
     data_image_map = {}
 
-    for img_id, image_url in RE_DATA_IMAGE.findall(text):
+    for image_url, img_id in RE_DATA_IMAGE.findall(text):
         data_image_map[img_id] = image_url.encode('utf-8').decode("unicode-escape")
     logger.debug("data:image objects --> %s", list(data_image_map.keys()))
     return data_image_map
@@ -353,19 +353,18 @@ def response(resp: "SXNG_Response"):
     dom = html.fromstring(resp.text)
 
     # parse results
-
-    for result in eval_xpath_list(dom, './/div[contains(@class, "MjjYud")]'):
+    for result in eval_xpath_list(dom, '//a[@data-ved and not(@class)]'):
         # pylint: disable=too-many-nested-blocks
 
         try:
-            title_tag = eval_xpath_getindex(result, './/div[contains(@role, "link")]', 0, default=None)
+            title_tag = eval_xpath_getindex(result, './/div[@style]', 0, default=None)
             if title_tag is None:
                 # this not one of the common google results *section*
                 logger.debug("ignoring item from the result_xpath list: missing title")
                 continue
             title = extract_text(title_tag)
 
-            raw_url = eval_xpath_getindex(result, ".//a/@href", 0, None)
+            raw_url = result.get("href")
             if raw_url is None:
                 logger.debug(
                     'ignoring item from the result_xpath list: missing url of title "%s"',
@@ -378,15 +377,15 @@ def response(resp: "SXNG_Response"):
             else:
                 url = raw_url
 
-            content_nodes = eval_xpath(result, './/div[contains(@data-sncf, "1")]')
+            content_nodes = eval_xpath(result, '../..//div[contains(@class, "ilUpNd H66NU aSRlid")]')
             for item in content_nodes:
                 for script in item.xpath(".//script"):
                     script.getparent().remove(script)
 
-            content = extract_text(content_nodes)
+            content = extract_text(content_nodes[0])
 
             # Images that are NOT the favicon
-            xpath_image = eval_xpath_getindex(result, './/img[not(@class="XNo5Ab")]', index=0, default=None)
+            xpath_image = eval_xpath_getindex(result, './/img', index=0, default=None)
 
             thumbnail = None
             if xpath_image is not None:
