@@ -131,10 +131,11 @@ max_page = 18
 """Tested 18 pages maximum (argument ``page``), to be save max is set to 20."""
 
 time_range_support = True
+language_support = True
 safesearch = True
 
 time_range_dict = {"day": "d", "week": "w", "month": "m", "year": "y"}
-safesearch_dict = {0: "1", 1: "0", 2: "0"}
+safesearch_dict = {0: "none", 1: "moderate", 2: "heavy"}
 
 # search-url
 base_url = "https://www.startpage.com"
@@ -251,9 +252,10 @@ def request(query, params):
         "t": "device",
         "sc": get_sc_code(params),
         "with_date": time_range_dict.get(params["time_range"], ""),
-        "abp": "1",
         "abd": "1",
         "abe": "1",
+        "qsr": "all",
+        "qadf": safesearch_dict[params["safesearch"]],
     }
 
     if engine_language:
@@ -381,6 +383,9 @@ def _get_image_result(result) -> dict[str, t.Any] | None:
         size_str = "".join(filter(str.isdigit, result["filesize"]))
         filesize = humanize_bytes(int(size_str))
 
+    img_format = result.get("format").upper()
+    if img_format == "UNKNOWN":
+        img_format = ""
     return {
         "template": "images.html",
         "url": url,
@@ -389,7 +394,7 @@ def _get_image_result(result) -> dict[str, t.Any] | None:
         "img_src": result.get("rawImageUrl"),
         "thumbnail_src": thumbnailUrl,
         "resolution": resolution,
-        "img_format": result.get("format"),
+        "img_format": img_format,
         "filesize": filesize,
     }
 

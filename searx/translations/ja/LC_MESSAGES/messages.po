@@ -28,7 +28,7 @@
 # cc5efd7b0 <cc5efd7b0@noreply.codeberg.org>, 2025.
 # ayame30 <ayame30@noreply.codeberg.org>, 2025.
 # anmoti <anmoti@noreply.codeberg.org>, 2025.
-# return42 <return42@noreply.codeberg.org>, 2025.
+# return42 <return42@noreply.codeberg.org>, 2025, 2026.
 # norizou <norizou@noreply.codeberg.org>, 2025.
 # c2qd <c2qd@noreply.codeberg.org>, 2025.
 # southwxst <southwxst@noreply.codeberg.org>, 2025.
@@ -36,9 +36,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-24 18:43+0000\n"
-"PO-Revision-Date: 2025-12-07 17:10+0000\n"
-"Last-Translator: c2qd <c2qd@noreply.codeberg.org>\n"
+"POT-Creation-Date: 2026-07-15 15:45+0000\n"
+"PO-Revision-Date: 2026-05-19 12:07+0000\n"
+"Last-Translator: return42 <return42@noreply.codeberg.org>\n"
 "Language: ja\n"
 "Language-Team: Japanese "
 "<https://translate.codeberg.org/projects/searxng/searxng/ja/>\n"
@@ -89,7 +89,7 @@ msgid "videos"
 msgstr "動画"
 
 #. CATEGORY_NAMES['RADIO']
-#: searx/engines/radio_browser.py:146 searx/searxng.msg
+#: searx/engines/radio_browser.py:160 searx/searxng.msg
 msgid "radio"
 msgstr "ラジオ"
 
@@ -194,7 +194,7 @@ msgid "Uptime"
 msgstr "稼働時間"
 
 #. BRAND_CUSTOM_LINKS['ABOUT']
-#: searx/searxng.msg searx/templates/simple/base.html:46
+#: searx/searxng.msg searx/templates/simple/base.html:47
 msgid "About"
 msgstr "関連情報"
 
@@ -559,28 +559,28 @@ msgstr "クローズ"
 msgid "answered"
 msgstr "回答"
 
-#: searx/webapp.py:327
+#: searx/webapp.py:326
 msgid "No item found"
 msgstr "アイテムが見つかりません"
 
-#: searx/engines/qwant.py:291
-#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:329
+#: searx/engines/qwant.py:286
+#: searx/templates/simple/result_templates/images.html:62 searx/webapp.py:328
 msgid "Source"
 msgstr "ソース"
 
-#: searx/webapp.py:331
+#: searx/webapp.py:330
 msgid "Error loading the next page"
 msgstr "次のページの読み込み中にエラーが発生しました"
 
-#: searx/webapp.py:480 searx/webapp.py:881
+#: searx/webapp.py:478 searx/webapp.py:876
 msgid "Invalid settings, please edit your preferences"
 msgstr "設定が無効です、設定を変更してください"
 
-#: searx/webapp.py:496
+#: searx/webapp.py:494
 msgid "Invalid settings"
 msgstr "無効な設定です"
 
-#: searx/webapp.py:573 searx/webapp.py:663
+#: searx/webapp.py:570 searx/webapp.py:660
 msgid "search error"
 msgstr "検索エラー"
 
@@ -640,12 +640,12 @@ msgstr "サーバー API エラー"
 msgid "Suspended"
 msgstr "一時停止"
 
-#: searx/webutils.py:308
+#: searx/webutils.py:307
 #, python-brace-format
 msgid "{minutes} minute(s) ago"
 msgstr "{minutes} 分前"
 
-#: searx/webutils.py:309
+#: searx/webutils.py:308
 #, python-brace-format
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} 時間と{minutes} 分前"
@@ -659,7 +659,7 @@ msgstr "異なるランダムな値を生成する"
 msgid "Compute {func} of the arguments"
 msgstr "引数の {func} を計算する"
 
-#: searx/engines/boardreader.py:107
+#: searx/engines/boardreader.py:108
 #, python-brace-format
 msgid "Posted by {author}"
 msgstr ""
@@ -677,19 +677,19 @@ msgstr "{title} (廃止)"
 msgid "This entry has been superseded by"
 msgstr "このエントリは、置き換えられました:"
 
-#: searx/engines/qwant.py:293
+#: searx/engines/qwant.py:288
 msgid "Channel"
 msgstr "チャンネル"
 
-#: searx/engines/radio_browser.py:148
+#: searx/engines/radio_browser.py:162
 msgid "bitrate"
 msgstr "ビットレート"
 
-#: searx/engines/radio_browser.py:149
+#: searx/engines/radio_browser.py:163
 msgid "votes"
 msgstr "票数"
 
-#: searx/engines/radio_browser.py:150
+#: searx/engines/radio_browser.py:164
 msgid "clicks"
 msgstr "クリック"
 
@@ -719,15 +719,15 @@ msgstr "画像が単純すぎます。TinEyeが正しく照合を行うにはあ
 msgid "The image could not be downloaded."
 msgstr "この画像はダウンロードはできません。"
 
-#: searx/engines/zlibrary.py:79
+#: searx/engines/zlibrary.py:80
 msgid "Language"
 msgstr "言語"
 
-#: searx/engines/zlibrary.py:80
+#: searx/engines/zlibrary.py:81
 msgid "Book rating"
 msgstr "書籍評価点数"
 
-#: searx/engines/zlibrary.py:81
+#: searx/engines/zlibrary.py:82
 msgid "File quality"
 msgstr "ファイル品質"
 
@@ -777,7 +777,7 @@ msgstr "無限スクロール"
 msgid ""
 "Automatically loads the next page when scrolling to bottom of the current"
 " page"
-msgstr ""
+msgstr "現在のページの下までスクロールすると、自動的に次のページを読み込む"
 
 #: searx/plugins/oa_doi_rewrite.py:54
 msgid "Open Access DOI rewrite"
@@ -871,45 +871,45 @@ msgstr "%(search_page)s へ行く。"
 msgid "search page"
 msgstr "検索ページ"
 
-#: searx/templates/simple/base.html:50
+#: searx/templates/simple/base.html:51
 msgid "Donate"
 msgstr "寄付"
 
-#: searx/templates/simple/base.html:55 searx/templates/simple/base.html:57
+#: searx/templates/simple/base.html:56 searx/templates/simple/base.html:58
 #: searx/templates/simple/preferences.html:152
 msgid "Preferences"
 msgstr "設定"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "Powered by"
 msgstr "Powered by"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "a privacy-respecting, open metasearch engine"
 msgstr "プライバシーを尊重する、オープンメタ検索エンジン"
 
-#: searx/templates/simple/base.html:69
+#: searx/templates/simple/base.html:70
 #: searx/templates/simple/result_templates/packages.html:59
 msgid "Source code"
 msgstr "ソースコード"
 
-#: searx/templates/simple/base.html:70
+#: searx/templates/simple/base.html:71
 msgid "Issue tracker"
 msgstr "課題報告"
 
-#: searx/templates/simple/base.html:71 searx/templates/simple/stats.html:17
+#: searx/templates/simple/base.html:72 searx/templates/simple/stats.html:17
 msgid "Engine stats"
 msgstr "検索エンジンの状態"
 
-#: searx/templates/simple/base.html:73
+#: searx/templates/simple/base.html:74
 msgid "Public instances"
 msgstr "パブリック インスタンス"
 
-#: searx/templates/simple/base.html:76
+#: searx/templates/simple/base.html:77
 msgid "Privacy policy"
 msgstr "プライバシーポリシー"
 
-#: searx/templates/simple/base.html:79
+#: searx/templates/simple/base.html:80
 msgid "Contact instance maintainer"
 msgstr "インスタンスメンテナと連絡を取る"
 
@@ -928,7 +928,7 @@ msgstr "閲覧数"
 
 #: searx/templates/simple/macros.html:43
 #: searx/templates/simple/result_templates/file.html:18
-#: searx/templates/simple/result_templates/images.html:19
+#: searx/templates/simple/result_templates/images.html:52
 #: searx/templates/simple/result_templates/paper.html:14
 msgid "Author"
 msgstr "作者"
@@ -1005,6 +1005,7 @@ msgid "Privacy"
 msgstr "プライバシー"
 
 #: searx/templates/simple/preferences.html:235
+#: searx/templates/simple/result_templates/images.html:63
 msgid "Engines"
 msgstr "検索エンジン"
 
@@ -1020,23 +1021,19 @@ msgstr "特殊クエリー"
 msgid "Cookies"
 msgstr "クッキー"
 
-#: searx/templates/simple/results.html:30
-msgid "Number of results"
-msgstr "通知の数"
-
-#: searx/templates/simple/results.html:36
+#: searx/templates/simple/results.html:32
 msgid "Info"
 msgstr "インフォ"
 
-#: searx/templates/simple/results.html:77
+#: searx/templates/simple/results.html:73
 msgid "Back to top"
 msgstr "トップに戻る"
 
-#: searx/templates/simple/results.html:95
+#: searx/templates/simple/results.html:91
 msgid "Previous page"
 msgstr "前のページ"
 
-#: searx/templates/simple/results.html:113
+#: searx/templates/simple/results.html:109
 msgid "Next page"
 msgstr "次のページ"
 
@@ -1077,12 +1074,12 @@ msgid "Result count"
 msgstr "結果カウント"
 
 #: searx/templates/simple/elements/engines_msg.html:7
-#: searx/templates/simple/preferences/engines.html:31
+#: searx/templates/simple/preferences/engines.html:30
 #: searx/templates/simple/stats.html:27
 msgid "Response time"
 msgstr "応答時間"
 
-#: searx/templates/simple/preferences/engines.html:35
+#: searx/templates/simple/preferences/engines.html:34
 #: searx/templates/simple/stats.html:28
 msgid "Reliability"
 msgstr "信頼性"
@@ -1211,7 +1208,7 @@ msgstr "自動検出"
 #: searx/templates/simple/filters/safesearch.html:2
 #: searx/templates/simple/filters/safesearch.html:3
 #: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences/engines.html:27
+#: searx/templates/simple/preferences/engines.html:26
 #: searx/templates/simple/preferences/safesearch.html:2
 msgid "SafeSearch"
 msgstr "セーフサーチ"
@@ -1232,7 +1229,7 @@ msgid "None"
 msgstr "オフ"
 
 #: searx/templates/simple/filters/time_range.html:1
-#: searx/templates/simple/preferences/engines.html:28
+#: searx/templates/simple/preferences/engines.html:27
 msgid "Time range"
 msgstr "時間範囲"
 
@@ -1422,15 +1419,11 @@ msgstr "すべて無効"
 msgid "!bang"
 msgstr "!bang"
 
-#: searx/templates/simple/preferences/engines.html:26
-msgid "Supports selected language"
-msgstr "選択された言語のサポート"
-
-#: searx/templates/simple/preferences/engines.html:29
+#: searx/templates/simple/preferences/engines.html:28
 msgid "Weight"
 msgstr "比重"
 
-#: searx/templates/simple/preferences/engines.html:33
+#: searx/templates/simple/preferences/engines.html:32
 msgid "Max time"
 msgstr "最大時間"
 
@@ -1607,7 +1600,7 @@ msgid "This site did not provide any description."
 msgstr "このサイトは説明を提供しませんでした。"
 
 #: searx/templates/simple/result_templates/file.html:30
-#: searx/templates/simple/result_templates/images.html:22
+#: searx/templates/simple/result_templates/images.html:61
 #: searx/templates/simple/result_templates/torrent.html:18
 msgid "Filesize"
 msgstr "ファイルサイズ"
@@ -1625,19 +1618,19 @@ msgstr "分類"
 msgid "Download"
 msgstr "ダウンロード"
 
-#: searx/templates/simple/result_templates/images.html:20
+#: searx/templates/simple/result_templates/images.html:53
 msgid "Resolution"
 msgstr "解像度"
 
-#: searx/templates/simple/result_templates/images.html:21
-msgid "Format"
-msgstr "フォーマット"
+#: searx/templates/simple/result_templates/images.html:55
+msgid "Image formats"
+msgstr ""
 
-#: searx/templates/simple/result_templates/images.html:24
-msgid "Engine"
-msgstr "エンジン"
+#: searx/templates/simple/result_templates/images.html:56
+msgid "original format"
+msgstr ""
 
-#: searx/templates/simple/result_templates/images.html:25
+#: searx/templates/simple/result_templates/images.html:64
 msgid "View source"
 msgstr "ソースを閲覧する"
 
@@ -2319,4 +2312,16 @@ msgstr "動画を隠す"
 
 #~ msgid "Submit a new issue on Github including the above information"
 #~ msgstr "Githubで情報を含めて新たな問題を提起"
+
+#~ msgid "Supports selected language"
+#~ msgstr "選択された言語のサポート"
+
+#~ msgid "Number of results"
+#~ msgstr "通知の数"
+
+#~ msgid "Format"
+#~ msgstr "フォーマット"
+
+#~ msgid "Engine"
+#~ msgstr "エンジン"
 

@@ -32,7 +32,6 @@ from searx.utils import (
     eval_xpath_getindex,
     eval_xpath_list,
     extract_text,
-    gen_gsa_useragent,
 )
 
 if t.TYPE_CHECKING:
@@ -57,6 +56,7 @@ max_page = 50
 .. _Google max 50 pages: https://github.com/searxng/searxng/issues/2982
 """
 time_range_support = True
+language_support = True
 safesearch = True
 
 time_range_dict = {"day": "d", "week": "w", "month": "m", "year": "y"}
@@ -196,7 +196,7 @@ def get_google_info(params: "OnlineParams", eng_traits: EngineTraits) -> dict[st
     #   https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages
 
     # https://github.com/searxng/searxng/issues/2515#issuecomment-1607150817
-    ret_val["params"]["hl"] = f"{lang_code}-{country}"
+    ret_val["params"]["hl"] = f"{lang_code}"
 
     # lr parameter:
     #   The lr (language restrict) parameter restricts search results to
@@ -267,7 +267,6 @@ def get_google_info(params: "OnlineParams", eng_traits: EngineTraits) -> dict[st
     # HTTP headers
 
     ret_val["headers"]["Accept"] = "*/*"
-    ret_val["headers"]["User-Agent"] = gen_gsa_useragent()
 
     # Cookies
 
@@ -278,8 +277,26 @@ def get_google_info(params: "OnlineParams", eng_traits: EngineTraits) -> dict[st
     return ret_val
 
 
-def detect_google_sorry(resp):
+def detect_google_sorry(resp: "SXNG_Response"):
+    """Detect Google's bot-protection responses (CAPTCHA / sorry pages).
+
+    Google may block requests in several ways:
+
+    1. Redirect to sorry.google.com (standard CAPTCHA).
+    2. HTTP 302 redirect to ``/sorry/index?...`` on the same host -- when the
+       HTTP client doesn't follow the redirect, the response body is a short
+       HTML stub with a link to the sorry page.
+    3. Short HTML response (<2000 bytes) containing "/sorry/" -- a meta-refresh
+       or JS redirect variant.
+    """
+
     if resp.url.host == "sorry.google.com" or resp.url.path.startswith("/sorry"):
+        raise SearxEngineCaptchaException()
+
+    if resp.status_code == 302:
+        raise SearxEngineCaptchaException()
+
+    if len(resp.text) < 2000 and "/sorry/" in resp.text:
         raise SearxEngineCaptchaException()
 
 
