@@ -8,7 +8,6 @@ from searx import webutils
 from searx import engines
 from searx.weather import WeatherConditionType
 
-
 __all__ = [
     'CONSTANT_NAMES',
     'CATEGORY_NAMES',
@@ -32,6 +31,7 @@ CATEGORY_NAMES = {
     'MUSIC': 'music',
     'SOCIAL_MEDIA': 'social media',
     'IMAGES': 'images',
+    'STOCK_IMAGES': 'stock images',
     'VIDEOS': 'videos',
     'RADIO': 'radio',
     'TV': 'tv',

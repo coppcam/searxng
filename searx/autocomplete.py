@@ -11,7 +11,7 @@ from urllib.parse import urlencode
 
 import lxml.etree
 import lxml.html
-from httpx import HTTPError
+from curl_cffi.requests.exceptions import RequestException
 
 from searx import settings
 from searx.engines import (
@@ -62,8 +62,8 @@ def bing(query: str, _sxng_locale: str) -> list[str]:
     # bing search autocompleter
     base_url = "https://www.bing.com/AS/Suggestions?"
     # cvid has to be a 32 character long string consisting of numbers and uppsercase characters
-    cvid = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(32))
-    response = get(base_url + urlencode({'qry': query, 'csr': 1, 'cvid': cvid}))
+    cvid = ''.join(random.choices(string.ascii_uppercase + string.digits, k=32))
+    response = get(base_url + urlencode({'qry': query, 'csr': 1, 'cvid': cvid}), enable_http3=True)
     results: list[str] = []
 
     if response.ok:
@@ -83,7 +83,7 @@ def brave(query: str, _sxng_locale: str) -> list[str]:
     url = 'https://search.brave.com/api/suggest?'
     url += urlencode({'q': query})
     country = 'all'
-    kwargs = {'cookies': {'country': country}}
+    kwargs = {'cookies': {'country': country}, 'enable_http3': True}
     resp = get(url, **kwargs)
     results: list[str] = []
 
@@ -127,18 +127,17 @@ def duckduckgo(query: str, sxng_locale: str) -> list[str]:
 
 
 def google_complete(query: str, sxng_locale: str) -> list[str]:
-    """Autocomplete from Google.  Supports Google's languages and subdomains
+    """Autocomplete from Google.  Supports Google's languages
     (:py:obj:`searx.engines.google.get_google_info`) by using the async REST
     API::
 
-        https://{subdomain}/complete/search?{args}
+        https://www.google.com/complete/search?{args}
 
     """
 
     data = ENGINE_TRAITS.get("google") or {}
     traits = EngineTraits(**data)
     google_info: dict[str, t.Any] = google.get_google_info({'searxng_locale': sxng_locale}, traits)
-    url = 'https://{subdomain}/complete/search?{args}'
     args = urlencode(
         {
             'q': query,
@@ -148,12 +147,30 @@ def google_complete(query: str, sxng_locale: str) -> list[str]:
     )
     results: list[str] = []
 
-    resp = get(url.format(subdomain=google_info['subdomain'], args=args))
+    resp = get('https://www.google.com/complete/search?' + args, enable_http3=True)
     if resp and resp.ok:
         json_txt = resp.text[resp.text.find('[') : resp.text.find(']', -3) + 1]
         data = json.loads(json_txt)
         for item in data[0]:
             results.append(lxml.html.fromstring(item[0]).text_content())
+    return results
+
+
+def kagi(query: str, sxng_locale: str) -> list[str]:
+    """Autocomplete from Kagi."""
+
+    args: dict[str, str] = {'q': query}
+
+    if '-' in sxng_locale:
+        args['r'] = sxng_locale.split('-')[1].lower()
+
+    resp = get("https://kagisuggest.com/api/autosuggest?" + urlencode(args))
+    results: list[str] = []
+
+    if resp.ok:
+        data = resp.json()
+        if len(data) > 1:
+            results = data[1]
     return results
 
 
@@ -380,6 +397,7 @@ backends: dict[str, t.Callable[[str, str], list[str]]] = {
     'dbpedia': dbpedia,
     'duckduckgo': duckduckgo,
     'google': google_complete,
+    'kagi': kagi,
     'mwmbl': mwmbl,
     'naver': naver,
     'privacywall': privacywall,
@@ -400,5 +418,5 @@ def search_autocomplete(backend_name: str, query: str, sxng_locale: str) -> list
         return []
     try:
         return backend(query, sxng_locale)
-    except (HTTPError, SearxEngineResponseException):
+    except (RequestException, SearxEngineResponseException):
         return []

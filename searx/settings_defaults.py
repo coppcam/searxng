@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Implementation of the default settings."""
+
 from __future__ import annotations
 
 import typing as t
@@ -192,7 +193,7 @@ SCHEMA: dict[str, t.Any] = {
     'brand': SettingsBrand,
     'search': {
         'safe_search': SettingsValue((0, 1, 2), 0),
-        'autocomplete': SettingsValue(str, ''),
+        'autocomplete': SettingsValue(str, 'duckduckgo'),
         'autocomplete_min': SettingsValue(int, 4),
         'favicon_resolver': SettingsValue(str, ''),
         'default_lang': SettingsValue(tuple(SXNG_LOCALE_TAGS + ['']), ''),
@@ -219,7 +220,7 @@ SCHEMA: dict[str, t.Any] = {
         'base_url': SettingsValue((False, str), False, 'SEARXNG_BASE_URL'),
         'image_proxy': SettingsValue(bool, False, 'SEARXNG_IMAGE_PROXY'),
         'http_protocol_version': SettingsValue(('1.0', '1.1'), '1.0'),
-        'method': SettingsValue(('POST', 'GET'), 'POST', 'SEARXNG_METHOD'),
+        'method': SettingsValue(('POST', 'GET'), 'GET', 'SEARXNG_METHOD'),
         'default_http_headers': SettingsValue(dict, {}),
     },
     # redis is deprecated ..
@@ -253,8 +254,6 @@ SCHEMA: dict[str, t.Any] = {
         'verify': SettingsValue((bool, str), True),
         'max_request_timeout': SettingsValue((None, numbers.Real), None),
         'pool_connections': SettingsValue(int, 100),
-        'pool_maxsize': SettingsValue(int, 10),
-        'keepalive_expiry': SettingsValue(numbers.Real, 5.0),
         # default maximum redirect
         # from https://github.com/psf/requests/blob/8c211a96cdbe9fe320d63d9e1ae15c5c07e179f8/requests/models.py#L55
         'max_redirects': SettingsValue(int, 30),

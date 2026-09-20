@@ -9,13 +9,14 @@ import codecs
 import hashlib
 import json
 import random
+import string
 
 from datetime import datetime
 from urllib.parse import urlencode
 
 from babel.core import get_global
 
-from searx.result_types import EngineResults, LegacyResult  # pyright: ignore[reportPrivateLocalImportUsage]
+from searx.result_types import EngineResults, Video
 from searx.utils import humanize_number, html_to_text
 
 if t.TYPE_CHECKING:
@@ -43,8 +44,8 @@ paging = True
 
 base_url = "https://api.swisscows.com"
 
-CAESAR_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-NONCE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"
+CAESAR_ALPHABET = string.ascii_uppercase
+NONCE_ALPHABET = string.ascii_letters + string.digits + "-._~"
 
 time_range_map = {"day": "Day", "week": "Week", "month": "Month", "year": "Year"}
 
@@ -92,7 +93,7 @@ def generate_nonce(length: int = 32) -> str:
     """
     Generate a random char sequence with the given length.
     """
-    return "".join([random.choice(NONCE_ALPHABET) for _ in range(length)])
+    return "".join(random.choices(NONCE_ALPHABET, k=length))
 
 
 def caesar_shift_with_switch_case(s: str, offset: int = 13) -> str:
@@ -151,7 +152,7 @@ def generate_nonce_and_signature(base_path: str, args: dict[str, t.Any]) -> tupl
 maximum_page_size = {"web": 20, "images": 50, "videos": 10}
 
 
-def init(_):
+def setup(_: dict[str, t.Any]) -> bool | None:
     if swisscows_category not in ("web", "images", "videos"):
         raise ValueError("illegal swisscows category: %s" % swisscows_category)
 
@@ -214,28 +215,24 @@ def request(query: str, params: "OnlineParams") -> None:
     params["url"] = f"{base_url}{base_path}?{urlencode(args)}"
 
 
-def _video_result(result: dict[str, str]) -> LegacyResult:
+def _video_result(result: dict[str, str]) -> Video:
     published_date = None
     if result.get("datePublished"):
         published_date = datetime.fromisoformat(result["datePublished"])
 
-    view_count = None
+    view_count = ""
     if result.get("viewCount"):
         view_count = humanize_number(result["viewCount"])  # pyright: ignore[reportArgumentType]
 
-    return LegacyResult(
-        {
-            "template": "videos.html",
-            "url": result["url"],
-            "title": html_to_text(result.get("title") or result["name"]),
-            "content": result["description"],
-            "thumbnail": result.get("thumbnailUrl")
-            or result.get("thumbnail", {}).get("url"),  # pyright: ignore[reportAttributeAccessIssue]
-            "length": result.get("duration"),
-            "iframe_src": result.get("embedUrl"),
-            "publishedDate": published_date,
-            "views": view_count,
-        }
+    return Video(
+        url=result["url"],
+        title=html_to_text(result.get("title") or result["name"]),
+        content=result["description"],
+        thumbnail=result.get("thumbnailUrl") or result.get("thumbnail", {}).get("url"),
+        length=result.get("duration"),
+        iframe_src=result.get("embedUrl"),
+        publishedDate=published_date,
+        views=view_count,
     )
 
 
@@ -271,14 +268,11 @@ def response(resp: "SXNG_Response") -> EngineResults:
                 res.add(_video_result(video))
         elif result["type"] == "ImageObject":
             res.add(
-                res.types.LegacyResult(
-                    {
-                        "template": "images.html",
-                        "url": result["url"],
-                        "thumbnail_src": result["thumbnail"]["url"],
-                        "img_src": result["contentUrl"],
-                        "title": result["name"],
-                    }
+                res.types.Image(
+                    url=result["url"],
+                    thumbnail_src=result["thumbnail"]["url"],
+                    img_src=result["contentUrl"],
+                    title=result["name"],
                 )
             )
         elif result["type"] == "video":
